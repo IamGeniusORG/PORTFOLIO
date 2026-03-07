@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teddy Dey | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+    <div class="hero-visual">
+        <div class="blob"></div>
+    </div>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="terminal-loader">
+            <div class="terminal-header">
+                <div class="terminal-title">TeddyOS Boot Sequence</div>
+            </div>
+            <div class="terminal-body" id="loader-text"></div>
+        </div>
+    </div>
+
+    <canvas id="bg-canvas"></canvas>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo-wrapper">
+                <button id="music-toggle" class="logo-btn" aria-label="Toggle Music">
+                    <span class="logo">T<span>.</span></span>
+                    <div class="music-waves" id="music-waves">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#" class="random-project-link">Projects</a></li>
+                <li><a href="#credibility">Achievements</a></li>
+                <li><a href="#content">Content</a></li>
+            </ul>
+            
+            <div class="nav-cta">
+                <button id="theme-switch" class="btn-icon" aria-label="Switch Theme" title="Toggle Cyberpunk Mode">
+                    <i class="fas fa-palette"></i>
+                </button>
+                <a href="#contact" class="btn-primary small">Contact</a>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <audio id="bg-music" loop>
+        <source src="BACKGROUND MUSIC.mp3" type="audio/mpeg">
+    </audio>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="reveal-text">Hi, I'm <span class="highlight">Tanmay Dey (Teddy)</span></h2>
+                    <h1 class="reveal-text delay-1">I build intelligent systems that bridge data and design.</h1>
+                    <p class="reveal-text delay-2">B.Tech CSE (AIML) student dedicated to creating scalable, AI-driven solutions and high-performance web experiences. Currently exploring the intersection of human-centric design and machine intelligence.</p>
+                    <div class="hero-btns reveal-text delay-3">
+                        <a href="#" class="btn-primary random-project-link">View My Work</a>
+                        <a href="Tanmay_Dey_Resume.pdf" class="btn-secondary" download><i class="fas fa-download"></i> Download Resume</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="about-text scroll-reveal">
+                        <h2 class="section-title">About Me</h2>
+                        <p>I am a <strong>B.Tech CSE (AIML)</strong> student at the intersection of logic and creativity. My development philosophy is rooted in <strong>clean architecture and scalability</strong>—I don't just write code that works; I build systems that last.</p>
+                        <p>I believe that Artificial Intelligence should be accessible and human-centric. Whether I'm architecting a database or fine-tuning a neural network, my goal is to create efficient, high-performance solutions that solve real-world problems with elegance.</p>
+                        
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <span class="skill-icon"><i class="fab fa-python"></i></span>
+                                <div>
+                                    <h4>AI & Logic</h4>
+                                    <p>Python, TensorFlow, Scikit-learn</p>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon"><i class="fas fa-database"></i></span>
+                                <div>
+                                    <h4>Data Systems</h4>
+                                    <p>PostgreSQL, DBMS Architecting</p>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon"><i class="fas fa-microchip"></i></span>
+                                <div>
+                                    <h4>System Core</h4>
+                                    <p>COA & Low-level Optimization</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image scroll-reveal">
+                        <div class="image-frame">
+                            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=800" alt="Teddy's Profile" class="profile-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Credibility Section -->
+        <section class="credibility section" id="credibility">
+            <div class="container">
+                <h2 class="section-title text-center scroll-reveal">Testimonials & Achievements</h2>
+                <div class="credibility-grid">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card scroll-reveal">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="quote-text">"Teddy's approach to the E-commerce project was exceptional. The database architecture he designed was both robust and incredibly efficient."</p>
+                        <div class="quote-author">
+                            <div class="author-info">
+                                <strong>Project Supervisor</strong>
+                                <span>Academic Evaluation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card scroll-reveal">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="quote-text">"A developer who actually understands the 'ML' in AIML. His focus on system optimization and clean code is rare to find in students."</p>
+                        <div class="quote-author">
+                            <div class="author-info">
+                                <strong>Hackathon Peer</strong>
+                                <span>Collaborative Project</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Achievement Badges -->
+                    <div class="achievements-card scroll-reveal">
+                        <h3><i class="fas fa-award"></i> Key Milestones</h3>
+                        <ul class="achievement-list">
+                            <li>
+                                <div class="badge-icon"><i class="fas fa-certificate"></i></div>
+                                <div>
+                                    <strong>AWS Cloud Practitioner</strong>
+                                    <span>Certified (In Progress)</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="badge-icon"><i class="fas fa-trophy"></i></div>
+                                <div>
+                                    <strong>Hackathon Runner Up</strong>
+                                    <span>Regional AI Innovation Challenge</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Creation Section -->
+        <section class="content-creation section" id="content">
+            <div class="container">
+                <div class="banner-glass scroll-reveal">
+                    <div class="banner-content">
+                        <span class="badge">Creator</span>
+                        <h2>Blox2Build</h2>
+                        <p>Beyond coding, I'm a passionate gamer and content creator. I stream and create videos showcasing high-end gaming setups and gameplay tutorials.</p>
+                        <a href="https://youtube.com/@b2b_yt_05?si=TXNKN7HaWXFsNbH5" target="_blank" class="btn-primary">Visit My YouTube Channel</a>
+                    </div>
+                    <div class="banner-video">
+                        <img src="VIDEO PREVIEW PIC.png" alt="Blox2Build Video Preview" class="video-preview-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="container text-center scroll-reveal">
+                <h2 class="section-title">Let's Build Something Great</h2>
+                <p class="contact-desc">Ready to start a project or just want to chat about AI? Feel free to reach out.</p>
+                
+                <div class="contact-methods">
+                    <a href="mailto:tanmaydey@gmail.com" class="email-link">
+                        <i class="fas fa-envelope"></i> tanmaydey@gmail.com
+                    </a>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://github.com/IamGeniusORG" target="_blank" class="social-btn github">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/tanmay-dey-500a44312/" target="_blank" class="social-btn linkedin">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://www.instagram.com/tanmaydeyoffl?igsh=MTUxODhtenMyOThhNw==" target="_blank" class="social-btn instagram">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Teddy Dey. Designed with passion, built with AIML precision.</p>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#" class="random-project-link">Projects</a>
+                    <a href="#credibility">Achievements</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Terminal Easter Egg -->
+    <div id="easter-egg-terminal" class="hidden">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <span>teddy@aiml: ~</span>
+                <button id="close-terminal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="terminal-output" id="terminal-output">
+                <div>Welcome to TeddyOS v1.0. Type 'help' to see available commands.</div>
+            </div>
+            <div class="terminal-input-line">
+                <span class="prompt">teddy@aiml:~$</span>
+                <input type="text" id="terminal-input" autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </div>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
