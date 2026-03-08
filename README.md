@@ -1,9 +1,9 @@
 # 🚀 Teddy Dey | Personal Portfolio
 
-![Portfolio Preview](assets/preview-image.png) > A sleek, dark-themed personal portfolio website built to showcase my development projects, technical skills, and content creation journey.
+![Portfolio Preview] > A sleek, dark-themed personal portfolio website built to showcase my development projects, technical skills, and content creation journey.
 
 ## 🌐 Live Demo
-**[View the Live Website Here](https://your-deployment-link.vercel.app)** ---
+**[View the Live Website Here](portfolio-nine-steel-41.vercel.app)** ---
 
 ## 👨‍💻 About Me
 I am a **B.Tech CSE (AIML)** student passionate about building efficient, scalable software and engaging digital experiences. My core technical interests lie at the intersection of logic and performance, specifically focusing on:
