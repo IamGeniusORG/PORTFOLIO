@@ -3,7 +3,7 @@
 ![Portfolio Preview] > A sleek, dark-themed personal portfolio website built to showcase my development projects, technical skills, and content creation journey.
 
 ## 🌐 Live Demo
-**[View the Live Website Here](portfolio-nine-steel-41.vercel.app)** ---
+**[View the Live Website Here](https://portfolio-nine-steel-41.vercel.app)** ---
 
 ## 👨‍💻 About Me
 I am a **B.Tech CSE (AIML)** student passionate about building efficient, scalable software and engaging digital experiences. My core technical interests lie at the intersection of logic and performance, specifically focusing on:
