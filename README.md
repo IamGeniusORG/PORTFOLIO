@@ -51,16 +51,6 @@ npx serve .
 
 Then open `http://localhost:8000`
 
-## Deployment
-
-Connected to Vercel for automatic deployments on push to `main`:
-
-```bash
-git add .
-git commit -m "Your message"
-git push origin main
-```
-
 ## Customization
 
 - **Themes**: Edit CSS custom properties in `style.css`
