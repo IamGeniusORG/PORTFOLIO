@@ -189,11 +189,28 @@ if (musicToggle && bgMusic && musicWaves) {
 
 // --- Random Project Selector ---
 const projectRepos = [
-    "https://github.com/IamGeniusORG/E-COMMERCE-STORE-JUST-FOR-THE-NAME",
-    "https://github.com/IamGeniusORG/E-COMMERCE-ORIGINAL",
-    "https://github.com/IamGeniusORG/BEN-10-UNIVERSE",
+    "https://github.com/IamGeniusORG/Fanmade-windows-12",
+    "https://github.com/IamGeniusORG/Quorum-Locked-Timelocked-Access-Vault",
+    "https://github.com/IamGeniusORG/Semantic-Search-for-Local-Notes",
+    "https://github.com/IamGeniusORG/PORTFOLIO",
     "https://github.com/IamGeniusORG/COPY-BIRD-WEB-BASED-GAME",
-    "https://github.com/IamGeniusORG/IamGeniusORG"
+    "https://github.com/IamGeniusORG/BACKGROUND-REMOVER",
+    "https://github.com/IamGeniusORG/Terminal-Based-Pattern-Matcher",
+    "https://github.com/IamGeniusORG/Image-Gallery",
+    "https://github.com/IamGeniusORG/IamGeniusORG",
+    "https://github.com/IamGeniusORG/Vector-Based-Local-Log-Anomaly-Predictor",
+    "https://github.com/IamGeniusORG/BEN-10-UNIVERSE",
+    "https://github.com/IamGeniusORG/To-Do-List-Application",
+    "https://github.com/IamGeniusORG/Snaptube-Clone",
+    "https://github.com/IamGeniusORG/E-COMMERCE-ORIGINAL",
+    "https://github.com/IamGeniusORG/Canvas-Based-Decentralized-Gossip-Protocol-Visualizer",
+    "https://github.com/IamGeniusORG/GeniusNexus-IQ",
+    "https://github.com/IamGeniusORG/Task-Manager-Web",
+    "https://github.com/IamGeniusORG/E-COMMERCE-STORE-JUST-FOR-THE-NAME",
+    "https://github.com/IamGeniusORG/Blog-Generator",
+    "https://github.com/IamGeniusORG/Weather-Application",
+    "https://github.com/IamGeniusORG/focus-ghost-extension",
+    "https://github.com/IamGeniusORG/Stack-Based-Micro-Virtual-Machine"
 ];
 
 const randomLinks = document.querySelectorAll('.random-project-link');
@@ -224,55 +241,6 @@ window.addEventListener('scroll', () => {
     const moveY = Math.sin(scrollPerc * Math.PI) * 15;
     
     heroVisual.style.transform = `translate(${moveX}vw, calc(-50% + ${moveY}vh))`;
-});
-
-// --- Preloader Logic ---
-const preloader = document.getElementById('preloader');
-const loaderText = document.getElementById('loader-text');
-const bootSequence = [
-    "Initializing TeddyOS core...",
-    "Loading AI modules...",
-    "Mounting PostgreSQL databases...",
-    "Establishing neural connections...",
-    "Boot sequence complete. Welcome."
-];
-
-let bootIndex = 0;
-let charIndex = 0;
-
-function typeBootSequence() {
-    if (bootIndex < bootSequence.length) {
-        if (charIndex < bootSequence[bootIndex].length) {
-            loaderText.innerHTML += bootSequence[bootIndex].charAt(charIndex);
-            charIndex++;
-            setTimeout(typeBootSequence, 20); // Typing speed
-        } else {
-            loaderText.innerHTML += "<br>";
-            bootIndex++;
-            charIndex = 0;
-            setTimeout(typeBootSequence, 200); // Pause between lines
-        }
-    } else {
-        setTimeout(() => {
-            preloader.style.opacity = '0';
-            setTimeout(() => {
-                preloader.style.display = 'none';
-                // Trigger hero animations explicitly after load
-                document.querySelectorAll('.reveal-text').forEach(el => {
-                    el.style.animationPlayState = 'running';
-                });
-            }, 500);
-        }, 500);
-    }
-}
-
-// Pause hero animations until preloader finishes
-document.querySelectorAll('.reveal-text').forEach(el => {
-    el.style.animationPlayState = 'paused';
-});
-
-window.addEventListener('load', () => {
-    setTimeout(typeBootSequence, 500);
 });
 
 // --- Theme Switcher (Multi-Theme Cycle) ---
