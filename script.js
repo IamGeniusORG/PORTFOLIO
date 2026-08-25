@@ -165,25 +165,121 @@ document.addEventListener('mousemove', (e) => {
     blob.style.transform = `translate(${x * 30}px, ${y * 30}px)`;
 });
 
-// --- Music Toggle & Wave Logic ---
+// --- Music Toggle & Wave Logic (Web Audio API Sync with CSS Fallback) ---
 const bgMusic = document.getElementById('bg-music');
 const musicToggle = document.getElementById('music-toggle');
 const musicWaves = document.getElementById('music-waves');
+const waveBars = musicWaves ? musicWaves.querySelectorAll('span') : [];
 
 let isMusicPlaying = false;
+let audioContext = null;
+let analyser = null;
+let dataArray = null;
+let animationFrameId = null;
+let useWebAudio = false;
+
+function initAudioContext() {
+    if (audioContext) return true;
+    try {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        analyser = audioContext.createAnalyser();
+        analyser.fftSize = 512;
+        analyser.smoothingTimeConstant = 0.9;
+        dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+        const source = audioContext.createMediaElementSource(bgMusic);
+        source.connect(analyser);
+        analyser.connect(audioContext.destination);
+        useWebAudio = true;
+        return true;
+    } catch (e) {
+        console.warn('Web Audio API not available, using CSS fallback:', e);
+        useWebAudio = false;
+        return false;
+    }
+}
+
+function animateWaves() {
+    if (!isMusicPlaying) return;
+
+    if (useWebAudio && analyser && dataArray) {
+        analyser.getByteFrequencyData(dataArray);
+
+        const bassStart = 0;
+        const bassEnd = Math.floor(analyser.frequencyBinCount * 0.15);
+        let bassSum = 0;
+        for (let i = bassStart; i < bassEnd; i++) {
+            bassSum += dataArray[i];
+        }
+        const bassAvg = bassSum / (bassEnd - bassStart);
+        const normalizedBass = bassAvg / 255;
+
+        const midStart = bassEnd;
+        const midEnd = Math.floor(analyser.frequencyBinCount * 0.4);
+        let midSum = 0;
+        for (let i = midStart; i < midEnd; i++) {
+            midSum += dataArray[i];
+        }
+        const midAvg = midSum / (midEnd - midStart);
+        const normalizedMid = midAvg / 255;
+
+        const heights = [
+            normalizedBass,
+            normalizedMid,
+            normalizedBass * 0.8,
+            normalizedMid * 0.6
+        ];
+
+        waveBars.forEach((bar, i) => {
+            const h = heights[i] || 0;
+            const minH = 5;
+            const maxH = 22;
+            bar.style.height = `${minH + h * (maxH - minH)}px`;
+        });
+    }
+    // CSS fallback handles animation via keyframes when useWebAudio is false
+
+    animationFrameId = requestAnimationFrame(animateWaves);
+}
 
 if (musicToggle && bgMusic && musicWaves) {
-    musicToggle.addEventListener('click', () => {
+    musicToggle.addEventListener('click', async () => {
         if (isMusicPlaying) {
             bgMusic.pause();
             musicWaves.classList.remove('playing');
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+            if (audioContext && audioContext.state !== 'closed') {
+                audioContext.suspend();
+            }
         } else {
-            bgMusic.play().catch(err => {
-                console.warn("Audio playback was prevented. Interactions might be required first.", err);
-            });
-            musicWaves.classList.add('playing');
+            if (!audioContext) initAudioContext();
+            if (audioContext && audioContext.state === 'suspended') {
+                await audioContext.resume();
+            }
+
+            try {
+                await bgMusic.play();
+                musicWaves.classList.add('playing');
+                animateWaves();
+            } catch (err) {
+                console.warn("Audio playback failed:", err);
+            }
         }
         isMusicPlaying = !isMusicPlaying;
+    });
+
+    bgMusic.addEventListener('ended', () => {
+        isMusicPlaying = false;
+        musicWaves.classList.remove('playing');
+        if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    });
+
+    bgMusic.addEventListener('error', () => {
+        console.warn('Audio load error, using CSS fallback');
+        useWebAudio = false;
     });
 }
 
