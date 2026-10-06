@@ -8,9 +8,10 @@ A modern, interactive personal portfolio showcasing AI/ML projects, full-stack a
 - **Multi-Theme Support** - Cyberpunk, Deep Sea, Lava, and Default themes
 - **Custom Cursor** - Smooth animated cursor with hover effects
 - **Scroll Animations** - Reveal-on-scroll with IntersectionObserver
-- **Music Player** - Background music toggle with visualizer
+- **Music Player** - Background music toggle with Web Audio API frequency visualizer (and CSS fallback)
 - **Terminal Easter Egg** - Hidden terminal (type `sudo` to activate)
 - **Random Project Selector** - "View My Work" opens random GitHub repo
+- **SVG Favicon** - Custom inline SVG favicon matching the dark-mode neon aesthetic
 - **Responsive Design** - Mobile-first, works on all devices
 
 ## Tech Stack
@@ -24,21 +25,23 @@ A modern, interactive personal portfolio showcasing AI/ML projects, full-stack a
 ## Project Structure
 
 ```
-├── index.html          # Main HTML structure
-├── style.css           # All styles (themes, animations, layout)
-├── script.js           # All JavaScript logic
-├── Creater Pic.png     # Content section image
-├── Portfolio Music.mp3 # Background music
-└── Tanmay_Dey_Resume.pdf
+├── index.html            # Main HTML structure
+├── style.css             # All styles (themes, animations, layout)
+├── script.js             # All JavaScript logic
+├── assets/images/        # Generated cover images for projects
+├── Creater Pic.png       # Content section image
+├── Portfolio Music.mp3   # Background music
+└── Tanmay-Dey-Resume.pdf # Downloadable Resume
 ```
 
 ## Sections
 
 1. **Hero** - Introduction with animated text
 2. **About** - Skills, philosophy, tech stack (6 categories)
-3. **Testimonials & Achievements** - Project references and milestones
-4. **Content Creation** - Blox2Build YouTube channel
-5. **Contact** - Email, GitHub, LinkedIn, Instagram
+3. **Featured Projects** - Highlighted major projects (Next.js, Python, Go)
+4. **Testimonials & Achievements** - Project references and milestones
+5. **Content Creation** - Blox2Build YouTube channel
+6. **Contact** - Email, GitHub, LinkedIn, Instagram
 
 ## Local Development
 
@@ -51,6 +54,8 @@ npx serve .
 
 Then open `http://localhost:8000`
 
+> **Note on Audio:** If opening `index.html` directly via the `file://` protocol, the background music relies on a CSS fallback visualizer to prevent local CORS muting. Running a local server allows the full Web Audio API equalizer to function.
+
 ## Customization
 
 - **Themes**: Edit CSS custom properties in `style.css`
@@ -61,3 +66,4 @@ Then open `http://localhost:8000`
 ## License
 
 MIT License - Feel free to use as inspiration for your own portfolio.
+
