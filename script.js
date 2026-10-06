@@ -167,6 +167,7 @@ document.addEventListener('mousemove', (e) => {
 
 // --- Music Toggle & Wave Logic (Web Audio API Sync with CSS Fallback) ---
 const bgMusic = document.getElementById('bg-music');
+if (bgMusic) bgMusic.volume = 0.5;
 const musicToggle = document.getElementById('music-toggle');
 const musicWaves = document.getElementById('music-waves');
 const waveBars = musicWaves ? musicWaves.querySelectorAll('span') : [];
@@ -180,6 +181,14 @@ let useWebAudio = false;
 
 function initAudioContext() {
     if (audioContext) return true;
+    
+    // Check if running locally (file:// protocol) which blocks Web Audio API output via CORS
+    if (window.location.protocol === 'file:') {
+        console.warn('Web Audio API disabled on file:// protocol to prevent muting. Using CSS fallback.');
+        useWebAudio = false;
+        return false;
+    }
+    
     try {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
         analyser = audioContext.createAnalyser();
@@ -285,28 +294,34 @@ if (musicToggle && bgMusic && musicWaves) {
 
 // --- Random Project Selector ---
 const projectRepos = [
+    "https://github.com/IamGeniusORG/AgriBridge",
+    "https://github.com/IamGeniusORG/BACKGROUND-REMOVER",
+    "https://github.com/IamGeniusORG/BEN-10-UNIVERSE",
+    "https://github.com/IamGeniusORG/Blog-Generator",
+    "https://github.com/IamGeniusORG/Canvas-Based-Decentralized-Gossip-Protocol-Visualizer",
+    "https://github.com/IamGeniusORG/CodeAlpha_EventRegistration",
+    "https://github.com/IamGeniusORG/CodeAlpha_RestaurantManagement",
+    "https://github.com/IamGeniusORG/CodeAlpha_UrlShortener",
+    "https://github.com/IamGeniusORG/COPY-BIRD-WEB-BASED-GAME",
+    "https://github.com/IamGeniusORG/E-COMMERCE-ORIGINAL",
+    "https://github.com/IamGeniusORG/E-COMMERCE-STORE-JUST-FOR-THE-NAME",
     "https://github.com/IamGeniusORG/Fanmade-windows-12",
+    "https://github.com/IamGeniusORG/focus-ghost-extension",
+    "https://github.com/IamGeniusORG/GeniusNexus-IQ",
+    "https://github.com/IamGeniusORG/IamGeniusORG",
+    "https://github.com/IamGeniusORG/Image-Gallery",
+    "https://github.com/IamGeniusORG/PORTFOLIO",
     "https://github.com/IamGeniusORG/Quorum-Locked-Timelocked-Access-Vault",
     "https://github.com/IamGeniusORG/Semantic-Search-for-Local-Notes",
-    "https://github.com/IamGeniusORG/PORTFOLIO",
-    "https://github.com/IamGeniusORG/COPY-BIRD-WEB-BASED-GAME",
-    "https://github.com/IamGeniusORG/BACKGROUND-REMOVER",
-    "https://github.com/IamGeniusORG/Terminal-Based-Pattern-Matcher",
-    "https://github.com/IamGeniusORG/Image-Gallery",
-    "https://github.com/IamGeniusORG/IamGeniusORG",
-    "https://github.com/IamGeniusORG/Vector-Based-Local-Log-Anomaly-Predictor",
-    "https://github.com/IamGeniusORG/BEN-10-UNIVERSE",
-    "https://github.com/IamGeniusORG/To-Do-List-Application",
     "https://github.com/IamGeniusORG/Snaptube-Clone",
-    "https://github.com/IamGeniusORG/E-COMMERCE-ORIGINAL",
-    "https://github.com/IamGeniusORG/Canvas-Based-Decentralized-Gossip-Protocol-Visualizer",
-    "https://github.com/IamGeniusORG/GeniusNexus-IQ",
+    "https://github.com/IamGeniusORG/Stack-Based-Micro-Virtual-Machine",
     "https://github.com/IamGeniusORG/Task-Manager-Web",
-    "https://github.com/IamGeniusORG/E-COMMERCE-STORE-JUST-FOR-THE-NAME",
-    "https://github.com/IamGeniusORG/Blog-Generator",
-    "https://github.com/IamGeniusORG/Weather-Application",
-    "https://github.com/IamGeniusORG/focus-ghost-extension",
-    "https://github.com/IamGeniusORG/Stack-Based-Micro-Virtual-Machine"
+    "https://github.com/IamGeniusORG/Terminal-Based-Pattern-Matcher",
+    "https://github.com/IamGeniusORG/To-Do-List-Application",
+    "https://github.com/IamGeniusORG/TripGenius",
+    "https://github.com/IamGeniusORG/Vector-Based-Local-Log-Anomaly-Predictor",
+    "https://github.com/IamGeniusORG/VibeForge",
+    "https://github.com/IamGeniusORG/Weather-Application"
 ];
 
 const randomLinks = document.querySelectorAll('.random-project-link');

@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teddy Dey | Portfolio</title>
+    <title>Teddy's Space</title>
+    <!-- Inline SVG Favicon matching the 'T' logo and neon blue aesthetic -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0a0a'/><path d='M25,25 H75 V45 H58 V80 H42 V45 H25 Z' fill='%2338bdf8'/></svg>">
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -20,42 +22,42 @@
     <div class="cursor-outline"></div>
 
     <nav class="navbar">
-        <div class="container">
-            <div class="logo-wrapper">
-                <button id="music-toggle" class="logo-btn" aria-label="Toggle Music">
-                    <span class="logo">T<span>.</span></span>
-                    <div class="music-waves" id="music-waves">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+            <div class="container">
+                <div class="logo-wrapper">
+                    <button id="music-toggle" class="logo-btn" aria-label="Toggle Music">
+                        <span class="logo">T<span>.</span></span>
+                        <div class="music-waves" id="music-waves">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#" class="random-project-link">Projects</a></li>
+                    <li><a href="#credibility">Achievements</a></li>
+                    <li><a href="#content">Content</a></li>
+                </ul>
+                
+                <div class="nav-cta">
+                    <button id="theme-switch" class="btn-icon" aria-label="Switch Theme" title="Toggle Cyberpunk Mode">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <a href="#contact" class="btn-primary small">Contact</a>
+                    <div class="menu-toggle" id="mobile-menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
                     </div>
-                </button>
-            </div>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#" class="random-project-link">Projects</a></li>
-                <li><a href="#credibility">Achievements</a></li>
-                <li><a href="#content">Content</a></li>
-            </ul>
-            
-            <div class="nav-cta">
-                <button id="theme-switch" class="btn-icon" aria-label="Switch Theme" title="Toggle Cyberpunk Mode">
-                    <i class="fas fa-palette"></i>
-                </button>
-                <a href="#contact" class="btn-primary small">Contact</a>
-                <div class="menu-toggle" id="mobile-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <audio id="bg-music" loop crossorigin="anonymous">
-        <source src="Portfolio Music.mp3" type="audio/mpeg">
+    <audio id="bg-music" loop>
+        <source src="Portfolio%20Music.mp3" type="audio/mpeg">
     </audio>
 
     <main>
@@ -68,7 +70,7 @@
                     <p class="reveal-text delay-2">B.Tech CSE (AIML) student crafting scalable AI solutions and high-performance web experiences. Exploring human-centric machine intelligence.</p>
                     <div class="hero-btns reveal-text delay-3">
                         <a href="#" class="btn-primary random-project-link">View My Work</a>
-                        <a href="Tanmay_Dey_Resume.pdf" class="btn-secondary" download><i class="fas fa-download"></i> Download Resume</a>
+                        <a href="Tanmay-Dey-Resume.pdf" class="btn-secondary" download><i class="fas fa-download"></i> Download Resume</a>
                     </div>
                 </div>
             </div>
@@ -80,50 +82,50 @@
                 <div class="section-grid">
                     <div class="about-text scroll-reveal">
                         <h2 class="section-title">About Me</h2>
-                        <p>I am a <strong>B.Tech CSE (AIML)</strong> student at the intersection of logic and creativity. My development philosophy is rooted in <strong>clean architecture and scalability</strong>—I don't just write code that works; I build systems that last.</p>
-                        <p>I believe that Artificial Intelligence should be accessible, local-first, and human-centric. With 20+ production repositories spanning full-stack apps, systems programming, ML pipelines, and DevOps tooling, I focus on creating efficient, high-performance solutions that solve real-world problems with elegance.</p>
+                        <p>I am an Oracle Certified Agentic AI Foundations Associate and a <strong>B.Tech CSE (AIML)</strong> student at the intersection of logic and creativity. My development philosophy is rooted in <strong>clean architecture and scalability</strong>—I don't just write code that works; I build systems that last.</p>
+                        <p>I believe that Artificial Intelligence should be accessible, local-first, and human-centric. With hands-on experience engineering production-grade backend microservices and orchestrating LLMs via OpenRouter APIs, I focus on creating efficient, high-performance solutions that solve real-world problems with elegance.</p>
                         
                         <div class="skills-grid">
                             <div class="skill-item">
                                 <span class="skill-icon"><i class="fab fa-python"></i></span>
                                 <div>
-                                    <h4>AI & Logic</h4>
-                                    <p>Python, TensorFlow, Scikit-learn, Sentence-Transformers</p>
+                                    <h4>Agentic AI & ML</h4>
+                                    <p>Python, TensorFlow, Sentence-Transformers, OpenRouter APIs</p>
                                 </div>
                             </div>
                             <div class="skill-item">
                                 <span class="skill-icon"><i class="fas fa-database"></i></span>
                                 <div>
-                                    <h4>Data Systems</h4>
-                                    <p>PostgreSQL, DBMS Architecting, Vector Databases</p>
+                                    <h4>Modern Frontend</h4>
+                                    <p>Next.js, TypeScript, React, Tailwind CSS</p>
                                 </div>
                             </div>
                             <div class="skill-item">
                                 <span class="skill-icon"><i class="fas fa-microchip"></i></span>
                                 <div>
-                                    <h4>System Core</h4>
-                                    <p>Rust, Java, COA & Low-level Optimization</p>
+                                    <h4>Backend Architecture</h4>
+                                    <p>Django, Flask, Go, REST APIs</p>
                                 </div>
                             </div>
                             <div class="skill-item">
                                 <span class="skill-icon"><i class="fas fa-cube"></i></span>
                                 <div>
-                                    <h4>Distributed Systems</h4>
-                                    <p>Gossip Protocols, P2P Networks, Smart Contracts</p>
+                                    <h4>Databases & ORMs</h4>
+                                    <p>PostgreSQL, MySQL, SQLite, Vector Databases</p>
                                 </div>
                             </div>
                             <div class="skill-item">
                                 <span class="skill-icon"><i class="fas fa-robot"></i></span>
                                 <div>
-                                    <h4>Local-First AI</h4>
-                                    <p>Ollama, Semantic Search, Anomaly Detection</p>
+                                    <h4>AI Tooling</h4>
+                                    <p>Ollama, MCP Servers, Semantic Search, Anomaly Detection</p>
                                 </div>
                             </div>
                             <div class="skill-item">
                                 <span class="skill-icon"><i class="fas fa-code"></i></span>
                                 <div>
-                                    <h4>Full-Stack & DevOps</h4>
-                                    <p>React, Three.js, Go, Docker, CI/CD</p>
+                                    <h4>DevOps & Systems</h4>
+                                    <p>Docker Desktop, Git, CI/CD, Clerk Auth</p>
                                 </div>
                             </div>
                         </div>
@@ -137,13 +139,57 @@
             </div>
         </section>
 
+        <!-- Projects Section -->
+        <section class="projects section" id="projects">
+            <div class="container">
+                <h2 class="section-title text-center scroll-reveal">Featured Projects</h2>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <article class="project-card scroll-reveal">
+                        <img src="assets/images/project1.jpg" alt="TripGenius AI Planner" class="project-img">
+                        <div class="project-content">
+                            <h3>TripGenius AI Planner</h3>
+                            <p>A full-stack AI-driven trip planner built with Next.js, TypeScript, Tailwind CSS, PostgreSQL, and Clerk authentication, orchestrated via OpenRouter APIs.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/IamGeniusORG/TripGenius" target="_blank" class="btn-secondary">View Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Project 2 -->
+                    <article class="project-card scroll-reveal">
+                        <img src="assets/images/project2.jpg" alt="BACKGROUND-REMOVER" class="project-img">
+                        <div class="project-content">
+                            <h3>BACKGROUND-REMOVER</h3>
+                            <p>Remove any image background for free. Built with Python and Streamlit.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/IamGeniusORG/BACKGROUND-REMOVER" target="_blank" class="btn-secondary">View Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Project 3 -->
+                    <article class="project-card scroll-reveal">
+                        <img src="assets/images/project3.jpg" alt="Snaptube-Clone" class="project-img">
+                        <div class="project-content">
+                            <h3>Snaptube-Clone</h3>
+                            <p>A next-generation, high-concurrency media extraction engine powered by Go and Python. Features hardware-adaptive resolution scaling, anti-bot spoofing, and a studio-grade FFmpeg rendering pipeline.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/IamGeniusORG/Snaptube-Clone" target="_blank" class="btn-secondary">View Code</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <!-- Credibility Section -->
         <section class="credibility section" id="credibility">
             <div class="container">
                 <h2 class="section-title text-center scroll-reveal">Testimonials & Achievements</h2>
                 <div class="credibility-grid">
                     <!-- Testimonial 1 -->
-                    <div class="testimonial-card scroll-reveal">
+                    <article class="testimonial-card scroll-reveal">
                         <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
                         <p class="quote-text">"The Windows 12 simulation with local AI integration demonstrates exceptional full-stack engineering—combining OS-level concepts, WebGL, and LLM orchestration in a single browser experience."</p>
                         <div class="quote-author">
@@ -152,9 +198,9 @@
                                 <span>Fanmade-windows-12 Project</span>
                             </div>
                         </div>
-                    </div>
+                    </article>
                     <!-- Testimonial 2 -->
-                    <div class="testimonial-card scroll-reveal">
+                    <article class="testimonial-card scroll-reveal">
                         <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
                         <p class="quote-text">"A high-concurrency media extraction engine with hardware-adaptive resolution scaling and anti-bot spoofing—production-grade Go/Python systems engineering."</p>
                         <div class="quote-author">
@@ -163,9 +209,9 @@
                                 <span>Snaptube-Clone Project</span>
                             </div>
                         </div>
-                    </div>
+                    </article>
                     <!-- Achievement Badges -->
-                    <div class="achievements-card scroll-reveal">
+                    <article class="achievements-card scroll-reveal">
                         <h3><i class="fas fa-award"></i> Key Milestones</h3>
                         <ul class="achievement-list">
                             <li>
@@ -204,7 +250,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
