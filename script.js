@@ -156,39 +156,45 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 5. Custom Cursor Logic ---
     const cursorDot = document.querySelector('.cursor-dot');
     const cursorOutline = document.querySelector('.cursor-outline');
+    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 768);
 
     if (cursorDot && cursorOutline) {
-        window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
+        if (isTouchDevice) {
+            cursorDot.style.display = 'none';
+            cursorOutline.style.display = 'none';
+        } else {
+            window.addEventListener('mousemove', (e) => {
+                const posX = e.clientX;
+                const posY = e.clientY;
 
-            // Dot follows immediately
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
+                // Dot follows immediately
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
 
-            // Outline follows with smooth damping
-            cursorOutline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 380, fill: "forwards" });
-        }, { passive: true });
+                // Outline follows with smooth damping
+                cursorOutline.animate({
+                    left: `${posX}px`,
+                    top: `${posY}px`
+                }, { duration: 380, fill: "forwards" });
+            }, { passive: true });
 
-        // Cursor Hover Effects
-        const attachCursorHover = () => {
-            const interactiveElements = document.querySelectorAll(
-                'a, button, .project-card, .creator-card, .menu-toggle, .btn-achievements-nav, .btn-achievements-hero, .btn-drive-launch, .filter-btn, .btn-project-link, .stat-box, .contribution-card, .milestone-box'
-            );
-            interactiveElements.forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                    document.body.classList.add('cursor-active');
+            // Cursor Hover Effects
+            const attachCursorHover = () => {
+                const interactiveElements = document.querySelectorAll(
+                    'a, button, .project-card, .creator-card, .menu-toggle, .btn-achievements-nav, .btn-achievements-hero, .btn-drive-launch, .filter-btn, .btn-project-link, .stat-box, .contribution-card, .milestone-box'
+                );
+                interactiveElements.forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        document.body.classList.add('cursor-active');
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        document.body.classList.remove('cursor-active');
+                    });
                 });
-                el.addEventListener('mouseleave', () => {
-                    document.body.classList.remove('cursor-active');
-                });
-            });
-        };
+            };
 
-        attachCursorHover();
+            attachCursorHover();
+        }
     }
 
     // --- 6. Hero Visual Blob Parallax ---
@@ -325,37 +331,100 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 8. Featured Projects Category Filtering ---
+    // --- 8. Featured Projects Category Filtering & Mobile View Optimization ---
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.projects-grid .project-card');
+    const toggleProjectsBtn = document.getElementById('toggle-more-projects-btn');
+    const mobileProjectsActionBar = document.getElementById('mobile-projects-action-bar');
+    
+    let isProjectsExpanded = false;
+    let activeFilter = 'all';
+
+    function updateProjectVisibility() {
+        const isMobile = window.innerWidth <= 768;
+        let visibleCount = 0;
+
+        projectCards.forEach(card => {
+            const category = card.getAttribute('data-category') || '';
+            const matchesFilter = (activeFilter === 'all' || category.includes(activeFilter));
+
+            if (!matchesFilter) {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(15px)';
+                card.style.display = 'none';
+            } else {
+                visibleCount++;
+                if (isMobile && activeFilter === 'all' && !isProjectsExpanded && visibleCount > 3) {
+                    card.style.display = 'none';
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(15px)';
+                } else {
+                    card.style.display = 'grid';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 30);
+                }
+            }
+        });
+
+        // Update mobile action bar / toggle button
+        if (mobileProjectsActionBar && toggleProjectsBtn) {
+            if (isMobile && activeFilter === 'all') {
+                mobileProjectsActionBar.style.display = 'flex';
+                const toggleText = toggleProjectsBtn.querySelector('.btn-toggle-text');
+                const toggleIcon = toggleProjectsBtn.querySelector('.toggle-icon');
+                if (isProjectsExpanded) {
+                    if (toggleText) toggleText.textContent = 'Close Projects Dropdown';
+                    if (toggleIcon) {
+                        toggleIcon.classList.remove('fa-chevron-down');
+                        toggleIcon.classList.add('fa-chevron-up');
+                    }
+                    toggleProjectsBtn.setAttribute('aria-expanded', 'true');
+                } else {
+                    if (toggleText) toggleText.textContent = 'More Projects Dropdown (6 More)';
+                    if (toggleIcon) {
+                        toggleIcon.classList.remove('fa-chevron-up');
+                        toggleIcon.classList.add('fa-chevron-down');
+                    }
+                    toggleProjectsBtn.setAttribute('aria-expanded', 'false');
+                }
+            } else {
+                mobileProjectsActionBar.style.display = 'none';
+            }
+        }
+    }
 
     if (filterButtons.length && projectCards.length) {
         filterButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterButtons.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-
-                const filter = btn.getAttribute('data-filter');
-
-                projectCards.forEach(card => {
-                    const category = card.getAttribute('data-category') || '';
-                    if (filter === 'all' || category.includes(filter)) {
-                        card.style.display = 'grid';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, 50);
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 250);
-                    }
-                });
+                activeFilter = btn.getAttribute('data-filter') || 'all';
+                updateProjectVisibility();
             });
         });
     }
+
+    if (toggleProjectsBtn) {
+        toggleProjectsBtn.addEventListener('click', () => {
+            isProjectsExpanded = !isProjectsExpanded;
+            updateProjectVisibility();
+            if (!isProjectsExpanded) {
+                const projectsSection = document.getElementById('projects');
+                if (projectsSection) {
+                    const topPos = projectsSection.getBoundingClientRect().top + window.pageYOffset - 70;
+                    window.scrollTo({ top: topPos, behavior: 'smooth' });
+                }
+            }
+        });
+    }
+
+    window.addEventListener('resize', () => {
+        updateProjectVisibility();
+    });
+
+    updateProjectVisibility();
 
     // --- 9. Random Project Selector ---
     const projectRepos = [
