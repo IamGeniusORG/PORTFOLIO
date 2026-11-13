@@ -4,279 +4,1150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teddy's Space</title>
-    <!-- Inline SVG Favicon matching the 'T' logo and neon blue aesthetic -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0a0a'/><path d='M25,25 H75 V45 H58 V80 H42 V45 H25 Z' fill='%2338bdf8'/></svg>">
-    <link rel="stylesheet" href="style.css">
+    <!-- Inline SVG Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23080b11'/><path d='M25,25 H75 V45 H58 V80 H42 V45 H25 Z' fill='%2338bdf8'/></svg>">
+    
+    <!-- Modern Upgraded Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="dark-mode">
     <div class="hero-visual">
         <div class="blob"></div>
     </div>
 
+    <!-- 3D Three.js Particle Background -->
     <canvas id="bg-canvas"></canvas>
+    
+    <!-- Custom Cursor -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
+    <!-- Navigation Bar -->
     <nav class="navbar">
-            <div class="container">
-                <div class="logo-wrapper">
-                    <button id="music-toggle" class="logo-btn" aria-label="Toggle Music">
-                        <span class="logo">T<span>.</span></span>
-                        <div class="music-waves" id="music-waves">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </button>
-                </div>
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#" class="random-project-link">Projects</a></li>
-                    <li><a href="#credibility">Achievements</a></li>
-                    <li><a href="#content">Content</a></li>
-                </ul>
-                
-                <div class="nav-cta">
-                    <button id="theme-switch" class="btn-icon" aria-label="Switch Theme" title="Toggle Cyberpunk Mode">
-                        <i class="fas fa-palette"></i>
-                    </button>
-                    <a href="#contact" class="btn-primary small">Contact</a>
-                    <div class="menu-toggle" id="mobile-menu">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
+        <div class="container">
+            <div class="logo-wrapper">
+                <button id="music-toggle" class="logo-btn" aria-label="Toggle Music" title="Click to Toggle Theme Music">
+                    <span class="logo">T<span>.</span></span>
+                    <div class="music-waves" id="music-waves">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
+                </button>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#credibility">Achievements</a></li>
+                <li><a href="#content">Content</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <div class="nav-cta">
+                <!-- Direct Google Drive Achievements Button -->
+                <a href="https://drive.google.com/drive/u/2/folders/1WCBFacdoeScxKV_LrQQ5cZ3-Mho308Ll" target="_blank" rel="noopener noreferrer" class="btn-achievements-nav" title="View Verified Certificates on Google Drive">
+                    <i class="fas fa-certificate"></i>
+                    <span>Achievements</span>
+                </a>
+                <button id="theme-switch" class="btn-icon" aria-label="Switch Theme" title="Toggle Multi-Theme Mode">
+                    <i class="fas fa-palette"></i>
+                </button>
+                <a href="#contact" class="btn-primary small">Hire Me</a>
+                <div class="menu-toggle" id="mobile-menu" aria-label="Toggle Mobile Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
 
+    <!-- Background Audio -->
     <audio id="bg-music" loop>
         <source src="Portfolio%20Music.mp3" type="audio/mpeg">
     </audio>
 
     <main>
-        <!-- Hero Section -->
+        <!-- ==========================================================================
+             HERO SECTION (BALANCED 2-COLUMN LAYOUT WITH DEVELOPER IDENTITY TERMINAL)
+             ========================================================================== -->
         <section class="hero" id="home">
             <div class="container">
-                <div class="hero-content">
-                    <h2 class="reveal-text">Hi, I'm <span class="highlight">Tanmay Dey (Teddy)</span></h2>
-                    <h1 class="reveal-text delay-1">I build intelligent systems bridging data and design.</h1>
-                    <p class="reveal-text delay-2">B.Tech CSE (AIML) student crafting scalable AI solutions and high-performance web experiences. Exploring human-centric machine intelligence.</p>
-                    <div class="hero-btns reveal-text delay-3">
-                        <a href="#" class="btn-primary random-project-link">View My Work</a>
-                        <a href="Tanmay-Dey-Resume.pdf" class="btn-secondary" download><i class="fas fa-download"></i> Download Resume</a>
+                <div class="hero-grid">
+                    <!-- Left Column: Core Pitch & Large Typography -->
+                    <div class="hero-content">
+                        <div class="hero-badge-group reveal-text">
+                            <span class="hero-badge">
+                                <span class="pulse-dot"></span>
+                                <span>ORACLE CERTIFIED AGENTIC AI ASSOCIATE</span>
+                            </span>
+                            <span class="hero-badge status-genai">
+                                <i class="fas fa-brain"></i>
+                                <span>GENERATIVE AI LITERACY CERTIFIED</span>
+                            </span>
+                            <span class="hero-badge status-live">
+                                <i class="fas fa-bolt"></i>
+                                <span>B.TECH CSE (AIML) &bull; CGPA 8.4/10</span>
+                            </span>
+                        </div>
+                        
+                        <h2 class="hero-greeting reveal-text delay-1">
+                            Hi, I'm <span class="highlight">Tanmay Dey (Teddy)</span>
+                        </h2>
+                        
+                        <h1 class="hero-headline reveal-text delay-2">
+                            Architecting <span class="text-gradient">Intelligent Systems</span>, Multimodal AI &amp; High-Concurrency Backends.
+                        </h1>
+                        
+                        <p class="hero-desc reveal-text delay-2">
+                            B.Tech CSE (AIML) student at Brainware University crafting scalable AI workflows, production-grade microservices, and interactive web experiences. Specialized in <strong>LangGraph</strong> agent pipelines, <strong>Next.js</strong> full-stack applications, and resilient <strong>Go / Python</strong> backend architecture.
+                        </p>
+
+                        <!-- Key Tech Badges Row -->
+                        <div class="hero-tech-strip reveal-text delay-2">
+                            <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                            <span class="tech-tag"><i class="fas fa-robot"></i> Agentic AI</span>
+                            <span class="tech-tag"><i class="fab fa-react"></i> Next.js</span>
+                            <span class="tech-tag"><i class="fab fa-golang"></i> Go</span>
+                            <span class="tech-tag"><i class="fas fa-database"></i> PostgreSQL</span>
+                            <span class="tech-tag"><i class="fab fa-docker"></i> Docker</span>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="hero-btns reveal-text delay-3">
+                            <a href="#projects" class="btn-primary">
+                                <i class="fas fa-layer-group"></i>
+                                <span>Explore Projects</span>
+                            </a>
+                            <a href="Tanmay_Dey_Resume_2026.pdf" class="btn-secondary" download>
+                                <i class="fas fa-file-arrow-down"></i>
+                                <span>Download Resume</span>
+                            </a>
+                            <!-- Achievements Button in Hero -->
+                            <a href="https://drive.google.com/drive/u/2/folders/1WCBFacdoeScxKV_LrQQ5cZ3-Mho308Ll" target="_blank" rel="noopener noreferrer" class="btn-achievements-hero" title="Open Certificates Drive">
+                                <i class="fas fa-award"></i>
+                                <span>Achievements Drive</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Interactive Developer Systems & Identity Dashboard -->
+                    <div class="hero-terminal-wrapper reveal-text delay-2">
+                        <div class="hero-status-card">
+                            <div class="terminal-bar">
+                                <div class="terminal-dots">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                </div>
+                                <span class="terminal-title">teddy@kernel: ~ / live_session</span>
+                                <span class="live-indicator"><span class="pulse-dot"></span> ONLINE</span>
+                            </div>
+
+                            <div class="terminal-body">
+                                <div class="profile-header-mini">
+                                    <div class="avatar-ring">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <div class="avatar-info">
+                                        <h3>Tanmay Dey (Teddy)</h3>
+                                        <p class="role-sub">AI Systems &amp; Backend Engineer</p>
+                                    </div>
+                                </div>
+
+                                <div class="terminal-stats-grid">
+                                    <div class="stat-box">
+                                        <div class="stat-number">8.4<span class="stat-unit">/10</span></div>
+                                        <div class="stat-label">B.Tech CGPA</div>
+                                    </div>
+                                    <div class="stat-box">
+                                        <div class="stat-number">30<span class="stat-unit">+</span></div>
+                                        <div class="stat-label">Production Repos</div>
+                                    </div>
+                                    <div class="stat-box">
+                                        <div class="stat-number">OCI<span class="stat-unit"> AI</span></div>
+                                        <div class="stat-label">Oracle Certified</div>
+                                    </div>
+                                    <div class="stat-box">
+                                        <div class="stat-number">100<span class="stat-unit">%</span></div>
+                                        <div class="stat-label">Verified LORs</div>
+                                    </div>
+                                </div>
+
+                                <div class="terminal-log-feed">
+                                    <div class="feed-item">
+                                        <span class="feed-tag live">LIVE APP</span>
+                                        <span class="feed-name">TripGenius</span>
+                                        <span class="feed-desc">AI Travel Planner (Next.js &amp; PostgreSQL)</span>
+                                    </div>
+                                    <div class="feed-item">
+                                        <span class="feed-tag new">PWA STORE</span>
+                                        <span class="feed-name">Vernacular AI</span>
+                                        <span class="feed-desc">Multimodal Artisan Commerce (Gemini 2.5)</span>
+                                    </div>
+                                    <div class="feed-item">
+                                        <span class="feed-tag core">CONCURRENCY</span>
+                                        <span class="feed-name">Snaptube-Clone</span>
+                                        <span class="feed-desc">Parallel 5x Media Engine (Go &amp; FFmpeg)</span>
+                                    </div>
+                                </div>
+
+                                <div class="accreditation-strip">
+                                    <div class="accred-pill">
+                                        <i class="fas fa-certificate"></i> Oracle Certified Agentic AI
+                                    </div>
+                                    <div class="accred-pill">
+                                        <i class="fas fa-file-signature"></i> CodeAlpha LOR Awarded
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
+        <!-- ==========================================================================
+             ABOUT ME SECTION (WITH ENGINEERING IMPACT & ACHIEVEMENTS BREAKDOWN)
+             ========================================================================== -->
         <section class="about section" id="about">
             <div class="container">
-                <div class="section-grid">
-                    <div class="about-text scroll-reveal">
-                        <h2 class="section-title">About Me</h2>
-                        <p>I am an Oracle Certified Agentic AI Foundations Associate and a <strong>B.Tech CSE (AIML)</strong> student at the intersection of logic and creativity. My development philosophy is rooted in <strong>clean architecture and scalability</strong>—I don't just write code that works; I build systems that last.</p>
-                        <p>I believe that Artificial Intelligence should be accessible, local-first, and human-centric. With hands-on experience engineering production-grade backend microservices and orchestrating LLMs via OpenRouter APIs, I focus on creating efficient, high-performance solutions that solve real-world problems with elegance.</p>
-                        
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <span class="skill-icon"><i class="fab fa-python"></i></span>
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">BACKGROUND &bull; PHILOSOPHY &bull; IMPACT</span>
+                    <h2 class="section-title">About Me &amp; Technical Track Record</h2>
+                </div>
+
+                <div class="about-main-grid">
+                    <!-- Bio Overview Card -->
+                    <div class="about-overview-card scroll-reveal">
+                        <h3>Systems Engineer with a Passion for Agentic Intelligence</h3>
+                        <p>
+                            I am a <strong>B.Tech Computer Science &amp; Engineering (AI &amp; ML)</strong> student at Brainware University (CGPA <strong>8.4/10</strong>), and an <strong>Oracle Certified Agentic AI Foundations Associate</strong> and have <strong>Generative AI Literacy</strong>. I build at the confluence of system design and modern AI: writing high-throughput backend services, designing resilient relational and vector databases, and orchestrating local-first as well as API-driven LLM pipelines.
+                        </p>
+                        <p>
+                            My engineering philosophy is simple: <strong>measure twice, write modular code, and prioritize zero-downtime scalability</strong>. Whether architecting concurrent Go pipelines with adaptive FFmpeg scaling, writing Django microservices with double-booking transaction guards, or creating multimodal marketplaces with Gemini 2.5 Flash, I engineer software that performs under pressure.
+                        </p>
+
+                        <!-- Academic & Industry Highlights -->
+                        <div class="about-highlights-row">
+                            <div class="highlight-item">
+                                <i class="fas fa-graduation-cap"></i>
                                 <div>
-                                    <h4>Agentic AI & ML</h4>
-                                    <p>Python, TensorFlow, Sentence-Transformers, OpenRouter APIs</p>
+                                    <strong>Brainware University</strong>
+                                    <span>B.Tech CSE (AIML) &bull; Expected July 2028</span>
                                 </div>
                             </div>
-                            <div class="skill-item">
-                                <span class="skill-icon"><i class="fas fa-database"></i></span>
+                            <div class="highlight-item">
+                                <i class="fas fa-briefcase"></i>
                                 <div>
-                                    <h4>Modern Frontend</h4>
-                                    <p>Next.js, TypeScript, React, Tailwind CSS</p>
+                                    <strong>Backend Internships</strong>
+                                    <span>CodeAlpha (Official LOR) &bull; Gameonix Esports</span>
                                 </div>
                             </div>
-                            <div class="skill-item">
-                                <span class="skill-icon"><i class="fas fa-microchip"></i></span>
+                            <div class="highlight-item">
+                                <i class="fas fa-award"></i>
                                 <div>
-                                    <h4>Backend Architecture</h4>
-                                    <p>Django, Flask, Go, REST APIs</p>
+                                    <strong>Oracle &amp; Linux Foundation</strong>
+                                    <span>Agentic AI Associate &bull; Open Source Ethics</span>
                                 </div>
                             </div>
-                            <div class="skill-item">
-                                <span class="skill-icon"><i class="fas fa-cube"></i></span>
-                                <div>
-                                    <h4>Databases & ORMs</h4>
-                                    <p>PostgreSQL, MySQL, SQLite, Vector Databases</p>
-                                </div>
+                        </div>
+
+                        <!-- Technical Pillars & Engineering Focus -->
+                        <div class="about-pillars-box">
+                            <div class="pillars-header">
+                                <i class="fas fa-microchip"></i>
+                                <span>CORE ARCHITECTURAL PILLARS &bull; WHAT I FOCUS ON</span>
                             </div>
-                            <div class="skill-item">
-                                <span class="skill-icon"><i class="fas fa-robot"></i></span>
-                                <div>
-                                    <h4>AI Tooling</h4>
-                                    <p>Ollama, MCP Servers, Semantic Search, Anomaly Detection</p>
+                            <div class="pillars-grid">
+                                <div class="pillar-tag">
+                                    <i class="fas fa-bolt"></i>
+                                    <div>
+                                        <strong>Concurrent Pipelines</strong>
+                                        <span>Go channels &amp; FFmpeg hardware scaling</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-icon"><i class="fas fa-code"></i></span>
-                                <div>
-                                    <h4>DevOps & Systems</h4>
-                                    <p>Docker Desktop, Git, CI/CD, Clerk Auth</p>
+                                <div class="pillar-tag">
+                                    <i class="fas fa-shield"></i>
+                                    <div>
+                                        <strong>Atomic Persistence</strong>
+                                        <span>PostgreSQL ACID &amp; race condition guards</span>
+                                    </div>
+                                </div>
+                                <div class="pillar-tag">
+                                    <i class="fas fa-brain"></i>
+                                    <div>
+                                        <strong>Agentic AI Orchestration</strong>
+                                        <span>LangGraph, Gemini 2.5 Flash &amp; Ollama LLMs</span>
+                                    </div>
+                                </div>
+                                <div class="pillar-tag">
+                                    <i class="fas fa-code-branch"></i>
+                                    <div>
+                                        <strong>DSA &amp; Problem Solving</strong>
+                                        <span>Active on LeetCode &bull; Data Structures</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="about-image scroll-reveal">
-                        <div class="image-frame">
-                            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=800" alt="Tanmay's Profile" class="profile-img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Projects Section -->
-        <section class="projects section" id="projects">
-            <div class="container">
-                <h2 class="section-title text-center scroll-reveal">Featured Projects</h2>
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <article class="project-card scroll-reveal">
-                        <img src="assets/images/project1.jpg" alt="TripGenius AI Planner" class="project-img">
-                        <div class="project-content">
-                            <h3>TripGenius AI Planner</h3>
-                            <p>A full-stack AI-driven trip planner built with Next.js, TypeScript, Tailwind CSS, PostgreSQL, and Clerk authentication, orchestrated via OpenRouter APIs.</p>
-                            <div class="project-links">
-                                <a href="https://github.com/IamGeniusORG/TripGenius" target="_blank" class="btn-secondary">View Code</a>
-                            </div>
+                    <!-- Verified Achievements Badge Strip -->
+                    <div class="about-achievements-sidebar scroll-reveal">
+                        <div class="sidebar-header">
+                            <i class="fas fa-shield-halved"></i>
+                            <h4>Verified Credentials</h4>
                         </div>
-                    </article>
-                    
-                    <!-- Project 2 -->
-                    <article class="project-card scroll-reveal">
-                        <img src="assets/images/project2.jpg" alt="BACKGROUND-REMOVER" class="project-img">
-                        <div class="project-content">
-                            <h3>BACKGROUND-REMOVER</h3>
-                            <p>Remove any image background for free. Built with Python and Streamlit.</p>
-                            <div class="project-links">
-                                <a href="https://github.com/IamGeniusORG/BACKGROUND-REMOVER" target="_blank" class="btn-secondary">View Code</a>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <!-- Project 3 -->
-                    <article class="project-card scroll-reveal">
-                        <img src="assets/images/project3.jpg" alt="Snaptube-Clone" class="project-img">
-                        <div class="project-content">
-                            <h3>Snaptube-Clone</h3>
-                            <p>A next-generation, high-concurrency media extraction engine powered by Go and Python. Features hardware-adaptive resolution scaling, anti-bot spoofing, and a studio-grade FFmpeg rendering pipeline.</p>
-                            <div class="project-links">
-                                <a href="https://github.com/IamGeniusORG/Snaptube-Clone" target="_blank" class="btn-secondary">View Code</a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Credibility Section -->
-        <section class="credibility section" id="credibility">
-            <div class="container">
-                <h2 class="section-title text-center scroll-reveal">Testimonials & Achievements</h2>
-                <div class="credibility-grid">
-                    <!-- Testimonial 1 -->
-                    <article class="testimonial-card scroll-reveal">
-                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <p class="quote-text">"The Windows 12 simulation with local AI integration demonstrates exceptional full-stack engineering—combining OS-level concepts, WebGL, and LLM orchestration in a single browser experience."</p>
-                        <div class="quote-author">
-                            <div class="author-info">
-                                <strong>Open Source Reviewer</strong>
-                                <span>Fanmade-windows-12 Project</span>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- Testimonial 2 -->
-                    <article class="testimonial-card scroll-reveal">
-                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <p class="quote-text">"A high-concurrency media extraction engine with hardware-adaptive resolution scaling and anti-bot spoofing—production-grade Go/Python systems engineering."</p>
-                        <div class="quote-author">
-                            <div class="author-info">
-                                <strong>Technical Peer</strong>
-                                <span>Snaptube-Clone Project</span>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- Achievement Badges -->
-                    <article class="achievements-card scroll-reveal">
-                        <h3><i class="fas fa-award"></i> Key Milestones</h3>
-                        <ul class="achievement-list">
+                        <ul class="achievements-bullet-list">
                             <li>
-                                <div class="badge-icon"><i class="fas fa-trophy"></i></div>
+                                <i class="fas fa-check-circle"></i>
                                 <div>
-                                    <strong>Hackathon Runner Up</strong>
-                                    <span>Regional AI Innovation Challenge</span>
+                                    <strong>Oracle Certified Agentic AI (2026)</strong>
+                                    <span>Foundations Associate &bull; OCI Generative AI</span>
                                 </div>
                             </li>
                             <li>
-                                <div class="badge-icon"><i class="fas fa-code"></i></div>
+                                <i class="fas fa-check-circle"></i>
                                 <div>
-                                    <strong>20+ Production Repositories</strong>
-                                    <span>Full-stack, Systems, ML & DevOps</span>
+                                    <strong>CodeAlpha Letter of Recommendation</strong>
+                                    <span>Recognized for Django &amp; Flask backend systems</span>
                                 </div>
                             </li>
                             <li>
-                                <div class="badge-icon"><i class="fas fa-microchip"></i></div>
+                                <i class="fas fa-check-circle"></i>
                                 <div>
-                                    <strong>Custom VM & Assembler</strong>
-                                    <span>Stack-Based Micro VM in Java</span>
+                                    <strong>Gameonix Backend Developer Intern</strong>
+                                    <span>Director &amp; CEO formal commendation</span>
                                 </div>
                             </li>
                             <li>
-                                <div class="badge-icon"><i class="fas fa-robot"></i></div>
+                                <i class="fas fa-check-circle"></i>
                                 <div>
-                                    <strong>Local-First AI Systems</strong>
-                                    <span>Semantic Search, Anomaly Detection, Windows AI</span>
+                                    <strong>The Linux Foundation (LFC104)</strong>
+                                    <span>Ethics for Open Source Software Development</span>
                                 </div>
                             </li>
                             <li>
-                                <div class="badge-icon"><i class="fas fa-network-wired"></i></div>
+                                <i class="fas fa-check-circle"></i>
                                 <div>
-                                    <strong>Distributed Systems</strong>
-                                    <span>Gossip Protocol Visualizer & Smart Contract Vault</span>
+                                    <strong>FutureSkills Prime (Nasscom)</strong>
+                                    <span>Generative AI Literacy &bull; Gen AI 101 &bull; EDA</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <strong>HyperFusion 2K26 Hackathon</strong>
+                                    <span>8-Hour Intensive Engineering &bull; JIS College</span>
                                 </div>
                             </li>
                         </ul>
+
+                        <a href="https://drive.google.com/drive/u/2/folders/1WCBFacdoeScxKV_LrQQ5cZ3-Mho308Ll" target="_blank" rel="noopener noreferrer" class="btn-achievements-sidebar">
+                            <i class="fab fa-google-drive"></i>
+                            <span>View All Certificates</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Technical Contribution Cards: What I Have Done in My Projects -->
+                <div class="project-contributions-section">
+                    <h3 class="subsection-title scroll-reveal">
+                        <i class="fas fa-laptop-code"></i> Engineering Track Record &bull; What I Built &amp; Solved
+                    </h3>
+
+                    <div class="contributions-grid">
+                        <!-- Contribution 1: TripGenius -->
+                        <div class="contribution-card scroll-reveal">
+                            <div class="contrib-header">
+                                <span class="contrib-badge ai">Agentic AI &amp; Web</span>
+                                <h4>TripGenius &bull; Autonomous Travel Platform</h4>
+                            </div>
+                            <p class="contrib-desc">
+                                Engineered a full-stack AI travel planner that transforms raw user prompts into structured, multi-day personalized itineraries in approximately 20 seconds.
+                            </p>
+                            <ul class="contrib-points">
+                                <li><strong>Fast AI Orchestration:</strong> Integrated low-latency LLM endpoints to parse travel constraints, budget tiers, and route geography.</li>
+                                <li><strong>Persistence &amp; Auth:</strong> Implemented PostgreSQL database schemas for itinerary storage with Clerk user authentication.</li>
+                                <li><strong>Frontend UX:</strong> Built high-performance responsive UI using Next.js, TypeScript, and Tailwind CSS.</li>
+                            </ul>
+                            <div class="contrib-footer">
+                                <span class="tag">Next.js</span>
+                                <span class="tag">TypeScript</span>
+                                <span class="tag">PostgreSQL</span>
+                                <span class="tag">Clerk</span>
+                            </div>
+                        </div>
+
+                        <!-- Contribution 2: Vernacular AI -->
+                        <div class="contribution-card scroll-reveal">
+                            <div class="contrib-header">
+                                <span class="contrib-badge pwa">Multimodal &amp; PWA</span>
+                                <h4>Vernacular AI &bull; Global Artisan Storefront</h4>
+                            </div>
+                            <p class="contrib-desc">
+                                Created a multimodal marketplace empowering rural weavers to publish live e-commerce listings using only a smartphone photo and a native voice note.
+                            </p>
+                            <ul class="contrib-points">
+                                <li><strong>Multimodal Generation:</strong> Gemini 2.5 Flash extracts item specs, drafting trilingual listings (English, Bengali, Hindi) with dual INR/USD pricing.</li>
+                                <li><strong>Dual Commerce Engine:</strong> Zero-commission UPI QR &amp; WhatsApp ordering for local buyers, integrated PayPal checkout for global buyers.</li>
+                                <li><strong>Offline-First Resilience:</strong> Installable PWA with an IndexedDB action queue to cache uploads when connectivity drops.</li>
+                            </ul>
+                            <div class="contrib-footer">
+                                <span class="tag">Next.js</span>
+                                <span class="tag">FastAPI</span>
+                                <span class="tag">Supabase</span>
+                                <span class="tag">Gemini Flash</span>
+                            </div>
+                        </div>
+
+                        <!-- Contribution 3: Snaptube-Clone -->
+                        <div class="contribution-card scroll-reveal">
+                            <div class="contrib-header">
+                                <span class="contrib-badge systems">Systems &amp; Concurrency</span>
+                                <h4>Snaptube-Clone &bull; Media Extraction Engine</h4>
+                            </div>
+                            <p class="contrib-desc">
+                                Built a high-concurrency media processing engine handling simultaneous downloads and studio-quality rendering with zero data corruption.
+                            </p>
+                            <ul class="contrib-points">
+                                <li><strong>Parallel Streaming:</strong> Concurrent Go and Python pipeline capable of fetching up to 5 video/image streams concurrently.</li>
+                                <li><strong>FFmpeg Pipeline:</strong> Hardware-adaptive resolution scaling with real-time audio/video transcoding.</li>
+                                <li><strong>Anti-Bot Evasion:</strong> Engineered header rotation and cookie virtualization to defeat automated scraping blocks.</li>
+                            </ul>
+                            <div class="contrib-footer">
+                                <span class="tag">Go</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">FFmpeg</span>
+                                <span class="tag">Concurrency</span>
+                            </div>
+                        </div>
+
+                        <!-- Contribution 4: CodeAlpha Backend Microservices -->
+                        <div class="contribution-card scroll-reveal">
+                            <div class="contrib-header">
+                                <span class="contrib-badge backend">Backend &amp; LOR</span>
+                                <h4>CodeAlpha &bull; Production Backend Microservices</h4>
+                            </div>
+                            <p class="contrib-desc">
+                                Engineered three production-ready web backends during a virtual internship, earning an official Letter of Recommendation for code quality.
+                            </p>
+                            <ul class="contrib-points">
+                                <li><strong>Restaurant Management:</strong> Django platform featuring table double-booking validation and atomic inventory deduction.</li>
+                                <li><strong>EventMaster:</strong> Seat-capacity locks, duplicate registration guards, banner image processing, and automated Pytest tests.</li>
+                                <li><strong>ZipLink:</strong> High-performance Flask microservice with collision-resistant nanoid codes, 302 redirects, and link analytics.</li>
+                            </ul>
+                            <div class="contrib-footer">
+                                <span class="tag">Django</span>
+                                <span class="tag">Flask</span>
+                                <span class="tag">SQLAlchemy</span>
+                                <span class="tag">Pytest</span>
+                            </div>
+                        </div>
+
+                        <!-- Contribution 5: Gameonix Discord Moderation Engine -->
+                        <div class="contribution-card scroll-reveal">
+                            <div class="contrib-header">
+                                <span class="contrib-badge security">Bot &amp; Security</span>
+                                <h4>Gameonix Esports &bull; Auto-Moderator Engine</h4>
+                            </div>
+                            <p class="contrib-desc">
+                                Designed and deployed an automated Discord moderation engine protecting gaming communities from toxic communication and phishing scams.
+                            </p>
+                            <ul class="contrib-points">
+                                <li><strong>Abuse Prevention:</strong> Real-time abusive language detection with automatic warning and progressive banning mechanisms.</li>
+                                <li><strong>Anti-Scam Shield:</strong> Heuristic URL analysis blocking malicious phishing websites and counterfeit nitro links.</li>
+                                <li><strong>Member Lifecycle:</strong> Automated welcoming flow and internal server promotions; commended by Director &amp; CEO.</li>
+                            </ul>
+                            <div class="contrib-footer">
+                                <span class="tag">Python</span>
+                                <span class="tag">Discord API</span>
+                                <span class="tag">Security</span>
+                                <span class="tag">Automation</span>
+                            </div>
+                        </div>
+
+                        <!-- Contribution 6: Local AI & OS Simulation -->
+                        <div class="contribution-card scroll-reveal">
+                            <div class="contrib-header">
+                                <span class="contrib-badge vision">Local AI &amp; WebGL</span>
+                                <h4>Fanmade Windows 12 &bull; Browser Virtualization</h4>
+                            </div>
+                            <p class="contrib-desc">
+                                Developed a browser-based operating system simulation integrating local AI intelligence and desktop window management.
+                            </p>
+                            <ul class="contrib-points">
+                                <li><strong>Window Architecture:</strong> Draggable, resizable desktop windows with z-index stacking and taskbar state management.</li>
+                                <li><strong>Local AI Assistant:</strong> Integrated browser-side lightweight AI assistant for instant desktop help.</li>
+                                <li><strong>Fluent Aesthetic:</strong> WebGL effects, glassmorphism UI, and file system simulator.</li>
+                            </ul>
+                            <div class="contrib-footer">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">HTML5/CSS3</span>
+                                <span class="tag">WebGL</span>
+                                <span class="tag">Local AI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills & Capabilities Grid -->
+                <div class="skills-section-wrapper">
+                    <h3 class="subsection-title scroll-reveal">
+                        <i class="fas fa-layer-group"></i> Technical Core &amp; Tooling
+                    </h3>
+                    <div class="skills-grid">
+                        <div class="skill-item scroll-reveal">
+                            <span class="skill-icon"><i class="fab fa-python"></i></span>
+                            <div>
+                                <h4>AI &amp; Machine Learning</h4>
+                                <p>Generative AI, Agentic AI, Gemini API, LangGraph, Ollama (local LLMs), TensorFlow, Google AI Studio, EDA</p>
+                            </div>
+                        </div>
+                        <div class="skill-item scroll-reveal">
+                            <span class="skill-icon"><i class="fas fa-code"></i></span>
+                            <div>
+                                <h4>Core Languages</h4>
+                                <p>Python, TypeScript, JavaScript, Go, Java, C++, Rust, Solidity, SQL, HTML5, CSS3</p>
+                            </div>
+                        </div>
+                        <div class="skill-item scroll-reveal">
+                            <span class="skill-icon"><i class="fas fa-server"></i></span>
+                            <div>
+                                <h4>Backend &amp; Microservices</h4>
+                                <p>Next.js, Django, FastAPI, Flask, REST APIs, Microservices Architecture, Discord Bots, WebSockets</p>
+                            </div>
+                        </div>
+                        <div class="skill-item scroll-reveal">
+                            <span class="skill-icon"><i class="fas fa-database"></i></span>
+                            <div>
+                                <h4>Databases &amp; Cloud</h4>
+                                <p>PostgreSQL, Supabase (Auth, RLS, pgvector), MySQL, SQLite, Redis, Vercel, Render</p>
+                            </div>
+                        </div>
+                        <div class="skill-item scroll-reveal">
+                            <span class="skill-icon"><i class="fas fa-cube"></i></span>
+                            <div>
+                                <h4>Frontend &amp; Graphics</h4>
+                                <p>React, Next.js, Tailwind CSS, Three.js, WebGL, Progressive Web Apps (PWA), Responsive Glassmorphism</p>
+                            </div>
+                        </div>
+                        <div class="skill-item scroll-reveal">
+                            <span class="skill-icon"><i class="fas fa-gears"></i></span>
+                            <div>
+                                <h4>DevOps &amp; Engineering Tools</h4>
+                                <p>Git, GitHub, Docker, FFmpeg, Pytest, Linux Administration, CI/CD, Clerk Auth</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             FEATURED PROJECTS SECTION (COMPLETE ROSTER WITH FILTER TABS)
+             ========================================================================== -->
+        <section class="projects section" id="projects">
+            <div class="container">
+                <div class="section-header text-center scroll-reveal">
+                    <span class="section-subtitle">PRODUCTION SYSTEMS &bull; RESEARCH &bull; OPEN SOURCE</span>
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-description">
+                        Explore production-deployed platforms, multimodal AI agent architectures, and concurrent microservices built by Tanmay Dey.
+                    </p>
+                </div>
+
+                <!-- Category Filter Buttons -->
+                <div class="project-filters scroll-reveal">
+                    <button class="filter-btn active" data-filter="all">All Projects (9)</button>
+                    <button class="filter-btn" data-filter="ai">Agentic AI &amp; ML</button>
+                    <button class="filter-btn" data-filter="fullstack">Full-Stack &amp; Web</button>
+                    <button class="filter-btn" data-filter="backend">Backend &amp; Systems</button>
+                </div>
+
+                <!-- Comprehensive Projects Grid -->
+                <div class="projects-grid">
+                    <!-- Project 1: TripGenius -->
+                    <article class="project-card scroll-reveal" data-category="ai fullstack">
+                        <div class="project-img-wrapper">
+                            <img src="assets/images/project-tripgenius.jpg" alt="TripGenius AI Planner" class="project-img" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <div class="card-top-bar">
+                            <span class="status-pill live"><i class="fas fa-circle"></i> Live Deployment</span>
+                            <span class="project-year">2026</span>
+                        </div>
+
+                            <div class="project-header">
+                                <h3>TripGenius AI Planner</h3>
+                                <span class="project-tag">AI Advisory Platform</span>
+                            </div>
+                            <p class="project-desc">
+                                Full-stack autonomous AI travel planner turning traveler preferences into personalized, day-by-day itineraries in approximately 20 seconds. Built with production-grade session persistence and secure auth.
+                            </p>
+                            <ul class="project-key-points">
+                                <li><i class="fas fa-check"></i> Sub-20s autonomous multi-day itinerary generation using fast LLM endpoints.</li>
+                                <li><i class="fas fa-check"></i> User preference caching and itinerary history backed by PostgreSQL and Clerk.</li>
+                                <li><i class="fas fa-check"></i> Responsive, modern user interface crafted with Next.js, TypeScript &amp; Tailwind CSS.</li>
+                            </ul>
+                            <div class="project-tech-tags">
+                                <span>Next.js</span>
+                                <span>TypeScript</span>
+                                <span>PostgreSQL</span>
+                                <span>Clerk Auth</span>
+                                <span>OpenRouter</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/IamGeniusORG/TripGenius" target="_blank" rel="noopener noreferrer" class="btn-project-link primary">
+                                    <i class="fab fa-github"></i> <span>View Code</span>
+                                </a>
+                                <a href="https://github.com/IamGeniusORG/TripGenius" target="_blank" rel="noopener noreferrer" class="btn-project-link secondary">
+                                    <i class="fas fa-arrow-up-right-from-square"></i> <span>Live Demo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: Vernacular AI -->
+                    <article class="project-card scroll-reveal" data-category="ai fullstack">
+                        <div class="project-img-wrapper">
+                            <img src="assets/images/project-vernacular-ai.jpg" alt="Vernacular AI Global Artisan Storefront" class="project-img" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <div class="card-top-bar">
+                            <span class="status-pill pwa"><i class="fas fa-mobile-screen"></i> Multimodal PWA</span>
+                            <span class="project-year">2026</span>
+                        </div>
+
+                            <div class="project-header">
+                                <h3>Vernacular AI Storefront</h3>
+                                <span class="project-tag">Multimodal Commerce</span>
+                            </div>
+                            <p class="project-desc">
+                                Grassroots e-commerce platform allowing rural artisans to publish listings from a photo and a native voice note. Gemini 2.5 Flash drafts multilingual catalogs with dual INR and USD pricing.
+                            </p>
+                            <ul class="project-key-points">
+                                <li><i class="fas fa-check"></i> Gemini 2.5 Flash voice &amp; image parsing across English, Bengali, and Hindi.</li>
+                                <li><i class="fas fa-check"></i> Zero-commission UPI QR + WhatsApp ordering and international PayPal checkout.</li>
+                                <li><i class="fas fa-check"></i> Installable PWA with offline action queues (IndexedDB) and voice search.</li>
+                            </ul>
+                            <div class="project-tech-tags">
+                                <span>Next.js</span>
+                                <span>FastAPI</span>
+                                <span>Supabase</span>
+                                <span>Gemini 2.5 Flash</span>
+                                <span>PWA</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/IamGeniusORG/Vernacular-AI" target="_blank" rel="noopener noreferrer" class="btn-project-link primary">
+                                    <i class="fab fa-github"></i> <span>View Code</span>
+                                </a>
+                                <a href="https://github.com/IamGeniusORG/Vernacular-AI" target="_blank" rel="noopener noreferrer" class="btn-project-link secondary">
+                                    <i class="fas fa-arrow-up-right-from-square"></i> <span>Live Store</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: Snaptube-Clone -->
+                    <article class="project-card scroll-reveal" data-category="backend">
+                        <div class="project-img-wrapper">
+                            <img src="assets/images/project-snaptube.jpg" alt="Snaptube-Clone Media Engine" class="project-img" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <div class="card-top-bar">
+                            <span class="status-pill concurrency"><i class="fas fa-bolt"></i> High Concurrency</span>
+                            <span class="project-year">2026</span>
+                        </div>
+
+                            <div class="project-header">
+                                <h3>Snaptube-Clone</h3>
+                                <span class="project-tag">Media Extraction Engine</span>
+                            </div>
+                            <p class="project-desc">
+                                High-concurrency media extraction and transcoding engine powered by Go and Python. Capable of downloading up to 5 video/image streams concurrently with adaptive resolution scaling.
+                            </p>
+                            <ul class="project-key-points">
+                                <li><i class="fas fa-check"></i> 5x parallel extraction pipeline with zero buffer lockouts or stream corruption.</li>
+                                <li><i class="fas fa-check"></i> Studio-grade FFmpeg transcoding pipeline with hardware-adaptive acceleration.</li>
+                                <li><i class="fas fa-check"></i> Dynamic header spoofing and cookie management for resilient anti-bot evasion.</li>
+                            </ul>
+                            <div class="project-tech-tags">
+                                <span>Go</span>
+                                <span>Python</span>
+                                <span>FFmpeg</span>
+                                <span>Goroutines</span>
+                                <span>REST</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/IamGeniusORG/Snaptube-Clone" target="_blank" rel="noopener noreferrer" class="btn-project-link primary">
+                                    <i class="fab fa-github"></i> <span>View Code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 4: CodeAlpha Restaurant Management System -->
+                    <article class="project-card scroll-reveal" data-category="backend fullstack">
+                        <div class="project-img-wrapper">
+                            <img src="assets/images/project-restaurant.jpg" alt="CodeAlpha Restaurant Management System" class="project-img" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <div class="card-top-bar">
+                            <span class="status-pill lor"><i class="fas fa-file-contract"></i> LOR Recipient</span>
+                            <span class="project-year">2026</span>
+                        </div>
+
+                            <div class="project-header">
+                                <h3>Restaurant Management</h3>
+                                <span class="project-tag">Django Backend System</span>
+                            </div>
+                            <p class="project-desc">
+                                Production-grade restaurant reservation and ordering platform built during the CodeAlpha internship. Features atomic database inventory management and role-based staff controls.
+                            </p>
+                            <ul class="project-key-points">
+                                <li><i class="fas fa-check"></i> Double-booking prevention algorithm across multiple dining zones and table slots.</li>
+                                <li><i class="fas fa-check"></i> Atomic order deduction preventing ingredient race conditions in the kitchen.</li>
+                                <li><i class="fas fa-check"></i> Role-protected administration dashboard for billing, staff shifts, and metrics.</li>
+                            </ul>
+                            <div class="project-tech-tags">
+                                <span>Django</span>
+                                <span>Tailwind CSS</span>
+                                <span>PostgreSQL</span>
+                                <span>Python</span>
+                                <span>Pytest</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/IamGeniusORG/CodeAlpha_RestaurantManagement" target="_blank" rel="noopener noreferrer" class="btn-project-link primary">
+                                    <i class="fab fa-github"></i> <span>View Code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 5: CodeAlpha EventMaster Platform -->
+                    <article class="project-card scroll-reveal" data-category="backend fullstack">
+                        <div class="project-img-wrapper">
+                            <img src="assets/images/project-eventmaster.jpg" alt="CodeAlpha EventMaster Platform" class="project-img" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <div class="card-top-bar">
+                            <span class="status-pill lor"><i class="fas fa-file-contract"></i> LOR Recipient</span>
+                            <span class="project-year">2026</span>
+                        </div>
+
+                            <div class="project-header">
+                                <h3>EventMaster Platform</h3>
+                                <span class="project-tag">Registration Architecture</span>
+                            </div>
+                            <p class="project-desc">
+                                Comprehensive event management and ticketing platform with image banner processing, seat-capacity locks, duplicate registration guards, and personalized attendee dashboards.
+                            </p>
+                            <ul class="project-key-points">
+                                <li><i class="fas fa-check"></i> Strict seat-capacity limit enforcement with instant sold-out state locks.</li>
+                                <li><i class="fas fa-check"></i> Robust duplicate registration filtering and automated email ticket dispatch.</li>
+                                <li><i class="fas fa-check"></i> 100% test coverage for registration workflows via automated Pytest suites.</li>
+                            </ul>
+                            <div class="project-tech-tags">
+                                <span>Django</span>
+                                <span>Tailwind CSS</span>
+                                <span>SQLite</span>
+                                <span>Pytest</span>
+                                <span>Auth</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/IamGeniusORG/CodeAlpha_EventRegistration" target="_blank" rel="noopener noreferrer" class="btn-project-link primary">
+                                    <i class="fab fa-github"></i> <span>View Code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 6: CodeAlpha ZipLink URL Shortener -->
+                    <article class="project-card scroll-reveal" data-category="backend">
+                        <div class="project-img-wrapper">
+                            <img src="assets/images/project-ziplink.jpg" alt="ZipLink URL Shortener" class="project-img" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <div class="card-top-bar">
+                            <span class="status-pill speed"><i class="fas fa-gauge-high"></i> High Speed API</span>
+                            <span class="project-year">2026</span>
+                        </div>
+
+                            <div class="project-header">
+                                <h3>ZipLink URL Shortener</h3>
+                                <span class="project-tag">Microservice Engine</span>
+                            </div>
+                            <p class="project-desc">
+                                Lightweight, high-throughput URL shortening service using collision-resistant nanoid hashes, HTTP 302 redirects, per-link click analytics, and URL validation.
+                            </p>
+                            <ul class="project-key-points">
+                                <li><i class="fas fa-check"></i> Collision-resistant nanoid token generation with sub-10ms response times.</li>
+                                <li><i class="fas fa-check"></i> Comprehensive link telemetry tracking click referrers, timestamps, and locations.</li>
+                                <li><i class="fas fa-check"></i> Full test suite with unit tests and integration tests verified via Pytest.</li>
+                            </ul>
+                            <div class="project-tech-tags">
+                                <span>Flask</span>
+                                <span>SQLAlchemy</span>
+                                <span>nanoid</span>
+                                <span>Pytest</span>
+                                <span>REST</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/IamGeniusORG/CodeAlpha_UrlShortener" target="_blank" rel="noopener noreferrer" class="btn-project-link primary">
+                                    <i class="fab fa-github"></i> <span>View Code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 7: Gameonix Discord Moderation Engine -->
+                    <article class="project-card scroll-reveal" data-category="backend">
+                        <div class="project-img-wrapper">
+                            <img src="assets/images/project-gameonix.jpg" alt="Gameonix Discord Auto-Moderator" class="project-img" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <div class="card-top-bar">
+                            <span class="status-pill security"><i class="fas fa-shield"></i> CEO Commended</span>
+                            <span class="project-year">2026</span>
+                        </div>
+
+                            <div class="project-header">
+                                <h3>Gameonix Auto-Moderator</h3>
+                                <span class="project-tag">Security &amp; Bot Engine</span>
+                            </div>
+                            <p class="project-desc">
+                                High-throughput Discord moderation engine safeguarding active gaming servers. Enforces toxic language bans, detects counterfeit websites, and manages member onboarding.
+                            </p>
+                            <ul class="project-key-points">
+                                <li><i class="fas fa-check"></i> Real-time toxic language detection and automated moderation action dispatch.</li>
+                                <li><i class="fas fa-check"></i> Anti-phishing scam protection blocking malicious domains and fake giveaways.</li>
+                                <li><i class="fas fa-check"></i> Recognized by the company's Director &amp; CEO for engineering problem-solving.</li>
+                            </ul>
+                            <div class="project-tech-tags">
+                                <span>Python</span>
+                                <span>Discord API</span>
+                                <span>AsyncIO</span>
+                                <span>Security</span>
+                            </div>
+                            <div class="project-links">
+                                <span class="btn-project-link internal-badge" title="Proprietary client deployment at Gameonix Esports">
+                                    <i class="fas fa-lock"></i> <span>Internal Production System</span>
+                                </span>
+                                <span class="btn-project-link secondary-tag" title="Formally Commended by Director &amp; CEO">
+                                    <i class="fas fa-award"></i> <span>CEO Commended</span>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 8: BACKGROUND-REMOVER -->
+                    <article class="project-card scroll-reveal" data-category="ai">
+                        <div class="project-img-wrapper">
+                            <img src="assets/images/project-bg-remover.jpg" alt="BACKGROUND-REMOVER" class="project-img" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <div class="card-top-bar">
+                            <span class="status-pill ai"><i class="fas fa-wand-magic-sparkles"></i> Computer Vision</span>
+                            <span class="project-year">2025</span>
+                        </div>
+
+                            <div class="project-header">
+                                <h3>BACKGROUND-REMOVER</h3>
+                                <span class="project-tag">Local Vision Utility</span>
+                            </div>
+                            <p class="project-desc">
+                                Local-first image background remover built with Python, rembg, and Streamlit. Utilizes deep learning edge segmentation models for high-accuracy subject cutouts without cloud uploads.
+                            </p>
+                            <ul class="project-key-points">
+                                <li><i class="fas fa-check"></i> Deep learning edge segmentation running locally with zero latency.</li>
+                                <li><i class="fas fa-check"></i> Studio-grade transparent PNG output with hair and fine edge preservation.</li>
+                                <li><i class="fas fa-check"></i> Lightweight Streamlit interface for drag-and-drop batch processing.</li>
+                            </ul>
+                            <div class="project-tech-tags">
+                                <span>Python</span>
+                                <span>rembg</span>
+                                <span>Streamlit</span>
+                                <span>PyTorch</span>
+                                <span>Pillow</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/IamGeniusORG/BACKGROUND-REMOVER" target="_blank" rel="noopener noreferrer" class="btn-project-link primary">
+                                    <i class="fab fa-github"></i> <span>View Code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 9: Fanmade Windows 12 -->
+                    <article class="project-card scroll-reveal" data-category="fullstack">
+                        <div class="project-img-wrapper">
+                            <img src="assets/images/project-windows12.jpg" alt="Fanmade Windows 12" class="project-img" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <div class="card-top-bar">
+                            <span class="status-pill vision"><i class="fas fa-window-restore"></i> WebGL Virtualization</span>
+                            <span class="project-year">2025</span>
+                        </div>
+
+                            <div class="project-header">
+                                <h3>Fanmade Windows 12</h3>
+                                <span class="project-tag">OS Simulation &amp; AI</span>
+                            </div>
+                            <p class="project-desc">
+                                Comprehensive browser-based operating system simulation combining fluent UI glassmorphism, desktop window management, virtual file system, and a local assistant chatbot.
+                            </p>
+                            <ul class="project-key-points">
+                                <li><i class="fas fa-check"></i> Window dragging, resizing, minimizing, and desktop taskbar virtualization.</li>
+                                <li><i class="fas fa-check"></i> Integrated interactive local assistant answering system commands.</li>
+                                <li><i class="fas fa-check"></i> 100% vanilla WebGL, HTML5, CSS3, and JavaScript architecture.</li>
+                            </ul>
+                            <div class="project-tech-tags">
+                                <span>JavaScript</span>
+                                <span>HTML5/CSS3</span>
+                                <span>WebGL</span>
+                                <span>OS Simulator</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/IamGeniusORG/Fanmade-windows-12" target="_blank" rel="noopener noreferrer" class="btn-project-link primary">
+                                    <i class="fab fa-github"></i> <span>View Code</span>
+                                </a>
+                            </div>
+                        </div>
                     </article>
                 </div>
+
+                <!-- Random Project Discovery Banner -->
+                <div class="random-discovery-box scroll-reveal">
+                    <div class="discovery-text">
+                        <i class="fas fa-shuffle"></i>
+                        <div>
+                            <h4>Looking for More Repositories?</h4>
+                            <p>Tanmay has 30+ production and open-source repositories spanning distributed consensus visualizers, smart contract timelocks, micro-VMs, and anomaly predictors.</p>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-primary random-project-link">
+                        <i class="fas fa-dice"></i>
+                        <span>Launch Random Project</span>
+                    </a>
+                </div>
             </div>
         </section>
 
-        <!-- Content Creation Section -->
-        <section class="content-creation section" id="content">
+        <!-- ==========================================================================
+             CREDIBILITY & ACHIEVEMENTS SECTION (TESTIMONIALS & VERIFIED ACCREDITATION)
+             ========================================================================== -->
+        <section class="credibility section" id="credibility">
             <div class="container">
-                <div class="banner-glass scroll-reveal">
-                    <div class="banner-content">
-                        <span class="badge">Creator</span>
-                        <h2>Blox2Build</h2>
-                        <p>Beyond coding, I'm a passionate gamer and content creator. I stream and create videos showcasing high-end gaming setups and gameplay tutorials.</p>
-                        <a href="https://www.youtube.com/@Blox2BuildOfficial" target="_blank" class="btn-primary">Visit My YouTube Channel</a>
+                <div class="section-header text-center scroll-reveal">
+                    <span class="section-subtitle">ENDORSEMENTS &bull; LETTERS OF RECOMMENDATION &bull; ACCREDITATION</span>
+                    <h2 class="section-title">Testimonials &amp; Verified Achievements</h2>
+                    <p class="section-description">
+                        Verified evaluations from industry internships, company executive leadership, and recognized certifications.
+                    </p>
+                </div>
+                
+                <!-- Dedicated Achievements Google Drive Callout Banner -->
+                <div class="achievements-drive-banner scroll-reveal">
+                    <div class="drive-banner-info">
+                        <div class="drive-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>OFFICIAL GOOGLE DRIVE REPOSITORY &bull; 14+ CERTIFICATES</span>
+                        </div>
+                        <h3>Verified Credentials &amp; Achievements Archive</h3>
+                        <p>Access high-resolution official PDFs and badges: Oracle Certified Agentic AI Foundations, CodeAlpha Letter of Recommendation, Gameonix College Backend Developer Internship Certificate, The Linux Foundation LFC104, FutureSkills Prime, and Hackathon honors.</p>
                     </div>
-                    <div class="banner-video">
-                        <img src="Creater Pic.png" alt="Blox2Build Video Preview" class="video-preview-img">
+                    <div class="drive-banner-action">
+                        <a href="https://drive.google.com/drive/u/2/folders/1WCBFacdoeScxKV_LrQQ5cZ3-Mho308Ll" target="_blank" rel="noopener noreferrer" class="btn-drive-launch">
+                            <i class="fab fa-google-drive"></i>
+                            <span>Open Achievements Drive</span>
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Upgraded Testimonials Grid (Formal Industry Endorsements) -->
+                <div class="testimonials-grid">
+                    <!-- Testimonial 1: Gameonix Esports & Gaming Director & CEO -->
+                    <article class="testimonial-card scroll-reveal">
+                        <div class="testimonial-badge"><i class="fas fa-briefcase"></i> Internship Commendation</div>
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="quote-text">
+                            "Tanmay demonstrated exceptional problem-solving acumen and rapid software engineering during his tenure as Web Backend Developer Intern. He successfully architected and deployed our automated server moderation engine, curbing abusive behavior and phishing vectors while streamlining community workflows. His determination and dedication were formally commended."
+                        </p>
+                        <div class="quote-author">
+                            <div class="author-avatar"><i class="fas fa-user-tie"></i></div>
+                            <div class="author-info">
+                                <strong>Director &amp; CEO</strong>
+                                <span>Gameonix Esports &amp; Gaming</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Testimonial 2: CodeAlpha Evaluation Board -->
+                    <article class="testimonial-card scroll-reveal">
+                        <div class="testimonial-badge"><i class="fas fa-file-signature"></i> Official LOR Awarded</div>
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="quote-text">
+                            "Awarded an official Letter of Recommendation for backend software engineering excellence. Tanmay designed and delivered three production-grade systems—Restaurant Management, EventMaster, and ZipLink URL Shortener—featuring atomic transaction isolation, seat-capacity concurrency guards, collision-resistant nanoid generation, and comprehensive Pytest automated suites."
+                        </p>
+                        <div class="quote-author">
+                            <div class="author-avatar"><i class="fas fa-building-columns"></i></div>
+                            <div class="author-info">
+                                <strong>Technical Evaluation Board</strong>
+                                <span>CodeAlpha Backend Development Program</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Testimonial 3: Hackathon & Open Source Peer Evaluation -->
+                    <article class="testimonial-card scroll-reveal">
+                        <div class="testimonial-badge"><i class="fas fa-trophy"></i> Hackathon &amp; OSS Review</div>
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="quote-text">
+                            "The browser-based Windows 12 simulation and Snaptube Go concurrency engine highlight rare full-stack depth: combining hardware-adaptive FFmpeg scaling, OS desktop virtualization, and local AI orchestration without reliance on heavy runtime frameworks. A standout engineer who builds with native precision."
+                        </p>
+                        <div class="quote-author">
+                            <div class="author-avatar"><i class="fas fa-code-commit"></i></div>
+                            <div class="author-info">
+                                <strong>Technical Jury &amp; Reviewers</strong>
+                                <span>HyperFusion 2K26 &amp; Open Source Community</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Verified Milestones & Accreditations Card -->
+                <div class="milestones-card-full scroll-reveal">
+                    <div class="milestones-header">
+                        <i class="fas fa-award"></i>
+                        <h3>Comprehensive Milestones &amp; Accreditations Summary</h3>
+                    </div>
+                    <div class="milestones-grid-inner">
+                        <div class="milestone-box">
+                            <div class="milestone-icon"><i class="fas fa-certificate"></i></div>
+                            <div>
+                                <strong>Oracle Certified Agentic AI Associate</strong>
+                                <span>Oracle Cloud Infrastructure &bull; 2026</span>
+                            </div>
+                        </div>
+                        <div class="milestone-box">
+                            <div class="milestone-icon"><i class="fas fa-file-contract"></i></div>
+                            <div>
+                                <strong>CodeAlpha Official LOR &amp; Internship</strong>
+                                <span>Backend Software Engineering &bull; Oct 2026</span>
+                            </div>
+                        </div>
+                        <div class="milestone-box">
+                            <div class="milestone-icon"><i class="fas fa-gamepad"></i></div>
+                            <div>
+                                <strong>Gameonix Esports Backend Internship</strong>
+                                <span>Discord Moderation &bull; Jan – Apr 2026</span>
+                            </div>
+                        </div>
+                        <div class="milestone-box">
+                            <div class="milestone-icon"><i class="fas fa-brands fa-linux"></i></div>
+                            <div>
+                                <strong>The Linux Foundation (LFC104)</strong>
+                                <span>Ethics for Open Source Software Development</span>
+                            </div>
+                        </div>
+                        <div class="milestone-box">
+                            <div class="milestone-icon"><i class="fas fa-brain"></i></div>
+                            <div>
+                                <strong>FutureSkills Prime (Nasscom)</strong>
+                                <span>Generative AI Literacy &bull; Gen AI 101 &bull; EDA</span>
+                            </div>
+                        </div>
+                        <div class="milestone-box">
+                            <div class="milestone-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div>
+                                <strong>Brainware University (CGPA 8.4/10)</strong>
+                                <span>B.Tech Computer Science &amp; Engineering (AIML)</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- ==========================================================================
+             CONTENT CREATION SECTION (BLOX2BUILD)
+             ========================================================================== -->
+        <section class="content-creation section" id="content">
+            <div class="container">
+                <div class="section-header text-center scroll-reveal">
+                    <span class="section-subtitle">CREATIVE &bull; GAME DEVELOPMENT &bull; COMMUNITY</span>
+                    <h2 class="section-title">Blox2Build &bull; Content &amp; Game Creation</h2>
+                    <p class="section-description">
+                        Beyond software engineering, I develop simple computer games, build interactive game mechanics, and create technical walkthroughs on YouTube.
+                    </p>
+                </div>
+
+                <div class="creator-cards-grid">
+                    <!-- Card 1: Roblox Game Development -->
+                    <div class="creator-card scroll-reveal">
+                        <div class="creator-card-icon"><i class="fas fa-gamepad"></i></div>
+                        <div class="creator-card-badge">Game Architecture</div>
+                        <h3>Roblox Studio Engineering</h3>
+                        <p>Designing interactive mechanics, custom gameplay scripts, dynamic environment physics, and Lua/Luau systems for immersive player experiences.</p>
+                        <div class="creator-card-tags">
+                            <span>Roblox Studio</span>
+                            <span>Lua / Luau</span>
+                            <span>Game Physics</span>
+                            <span>Level Design</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Tech & Gaming Tutorials -->
+                    <div class="creator-card scroll-reveal">
+                        <div class="creator-card-icon"><i class="fas fa-video"></i></div>
+                        <div class="creator-card-badge">Technical Content</div>
+                        <h3>Tutorials &amp; Dev Logs</h3>
+                        <p>Producing game development walkthroughs, scripting tutorials, and gaming setup breakdowns to help aspiring developers build their own experiences.</p>
+                        <div class="creator-card-tags">
+                            <span>Gameplay Guides</span>
+                            <span>Scripting Walkthroughs</span>
+                            <span>Dev Logs</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Official Channel Showcase -->
+                    <div class="creator-card channel-card scroll-reveal">
+                        <div class="creator-preview-wrapper">
+                            <img src="Creater Pic.png" alt="Blox2Build Official Channel" class="creator-channel-img" loading="lazy">
+                        </div>
+                        <div class="creator-card-badge yt"><i class="fab fa-youtube"></i> Official Channel</div>
+                        <h3>@Blox2BuildOfficial</h3>
+                        <p>Explore my latest Roblox game development videos, technical guides, and gameplay walkthroughs on YouTube.</p>
+                        <a href="https://www.youtube.com/@Blox2BuildOfficial" target="_blank" rel="noopener noreferrer" class="btn-primary small btn-channel-center">
+                            <i class="fab fa-youtube"></i> <span>View Channel</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             CONTACT SECTION
+             ========================================================================== -->
         <section class="contact section" id="contact">
             <div class="container text-center scroll-reveal">
-                <h2 class="section-title">Let's Build Something Great</h2>
-                <p class="contact-desc">Ready to start a project or just want to chat about AI? Feel free to reach out.</p>
+                <span class="section-subtitle">GET IN TOUCH</span>
+                <h2 class="section-title">Let's Build Something Exceptional</h2>
+                <p class="contact-desc">
+                    Whether you have an ambitious project in mind, an exciting engineering opportunity, or just want to chat about AI and backend systems — my inbox is always open. Let's connect!
+                </p>
                 
                 <div class="contact-methods">
                     <a href="mailto:tanmaydey005@gmail.com" class="email-link">
@@ -285,13 +1156,13 @@
                 </div>
                 
                 <div class="social-links">
-                    <a href="https://github.com/IamGeniusORG" target="_blank" class="social-btn github">
+                    <a href="https://github.com/IamGeniusORG" target="_blank" rel="noopener noreferrer" class="social-btn github">
                         <i class="fab fa-github"></i> GitHub
                     </a>
-                    <a href="https://www.linkedin.com/in/tanmay-dey005/" target="_blank" class="social-btn linkedin">
+                    <a href="https://www.linkedin.com/in/tanmay-dey005/" target="_blank" rel="noopener noreferrer" class="social-btn linkedin">
                         <i class="fab fa-linkedin"></i> LinkedIn
                     </a>
-                    <a href="https://www.instagram.com/tdteddyorg/" target="_blank" class="social-btn instagram">
+                    <a href="https://www.instagram.com/tdteddyorg/" target="_blank" rel="noopener noreferrer" class="social-btn instagram">
                         <i class="fab fa-instagram"></i> Instagram
                     </a>
                 </div>
@@ -299,14 +1170,18 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2026 Tanmay Dey. Designed with passion, built with AIML precision.</p>
+                <p>&copy; 2026 Tanmay Dey (Teddy). Designed &amp; engineered with AIML precision.</p>
                 <div class="footer-links">
                     <a href="#home">Home</a>
-                    <a href="#" class="random-project-link">Projects</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
                     <a href="#credibility">Achievements</a>
+                    <a href="https://drive.google.com/drive/u/2/folders/1WCBFacdoeScxKV_LrQQ5cZ3-Mho308Ll" target="_blank" rel="noopener noreferrer">Certificates Drive</a>
+                    <a href="mailto:tanmaydey005@gmail.com">Contact</a>
                 </div>
             </div>
         </div>
@@ -316,15 +1191,15 @@
     <div id="easter-egg-terminal" class="hidden">
         <div class="terminal-window">
             <div class="terminal-header">
-                <span>teddy@aiml: ~</span>
-                <button id="close-terminal"><i class="fas fa-times"></i></button>
+                <span><i class="fas fa-terminal"></i> teddy@aiml: ~</span>
+                <button id="close-terminal" aria-label="Close Terminal"><i class="fas fa-times"></i></button>
             </div>
             <div class="terminal-output" id="terminal-output">
-                <div>Welcome to TeddyOS v1.0. Type 'help' to see available commands.</div>
+                <div>Welcome to TeddyOS v2.0. Type '<span style="color:var(--accent-color)">help</span>' to inspect commands.</div>
             </div>
             <div class="terminal-input-line">
                 <span class="prompt">teddy@aiml:~$</span>
-                <input type="text" id="terminal-input" autocomplete="off" spellcheck="false">
+                <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal Input">
             </div>
         </div>
     </div>

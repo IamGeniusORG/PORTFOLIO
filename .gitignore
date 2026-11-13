@@ -1,0 +1,29 @@
+# Certificates (Official certificates are hosted on Google Drive)
+assets/certificates/
+
+# Scratch & Backup Directories
+scratch/
+backup_v1/
+backup_v2/
+Better/
+
+# OS & Environment Files
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
+# ------------------------------------------------------------------------------
+# NOTE ON SITE MEDIA & ASSETS:
+# If deploying to Vercel or GitHub Pages, the files below are REQUIRED in the repo
+# so that your live website can display project screenshots, play music, and serve
+# your resume download. 
+#
+# If you host these media files on an external CDN (e.g., Cloudinary, S3), you can
+# uncomment the lines below to ignore them from Git:
+#
+# assets/
+# Creater Pic.png
+# Portfolio Music.mp3
+# Tanmay_Dey_Resume_2026.pdf
+# ------------------------------------------------------------------------------

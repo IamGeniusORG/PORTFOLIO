@@ -1,69 +1,96 @@
 # Tanmay Dey (Teddy) - Personal Portfolio
 
-A modern, interactive personal portfolio showcasing AI/ML projects, full-stack applications, systems programming, and content creation work.
+A modern, high-performance personal portfolio showcasing Agentic AI architectures, scalable backend systems, full-stack web applications, and game development.
 
-## Features
+**Live Title:** Teddy's Space  
+**Framework:** Vanilla HTML5, CSS3, JavaScript (ES6+), Three.js  
+**Deployment:** Vercel / GitHub Pages  
 
-- **Interactive 3D Background** - Three.js particle system with mouse interaction
-- **Multi-Theme Support** - Cyberpunk, Deep Sea, Lava, and Default themes
-- **Custom Cursor** - Smooth animated cursor with hover effects
-- **Scroll Animations** - Reveal-on-scroll with IntersectionObserver
-- **Music Player** - Background music toggle with Web Audio API frequency visualizer (and CSS fallback)
-- **Terminal Easter Egg** - Hidden terminal (type `sudo` to activate)
-- **Random Project Selector** - "View My Work" opens random GitHub repo
-- **SVG Favicon** - Custom inline SVG favicon matching the dark-mode neon aesthetic
-- **Responsive Design** - Mobile-first, works on all devices
+---
+
+## Key Features
+
+- **Interactive 3D Frustum Canvas**: High-density 2,200 particle field rendered with Three.js (`r128`), featuring dynamic mouse-follow physics, fluid viewport resizing, and orientation compensation.
+- **Developer Systems Terminal (TeddyOS)**: Built-in interactive terminal supporting real-time CLI commands (`help`, `whoami`, `skills`, `projects`, `achievements`, `resume`, `matrix`, `clear`).
+- **Full-Canvas Horizontal Projects**: 9 major production-grade projects showcased with alternating horizontal card layouts, key architectural highlights, live status pills, and interactive category filtering.
+- **100% Unique Project Visuals**: Dedicated 16:9 high-resolution UI mockups for all 9 projects.
+- **Blox2Build Content & Game Creation**: Dedicated 3-card showcase highlighting Roblox Studio architecture, technical dev logs, and direct link to [@Blox2BuildOfficial](https://www.youtube.com/@Blox2BuildOfficial).
+- **Verified Credentials Archive**: Direct integration with official Google Drive certificates and verified credentials archive.
+- **Ambient Audio Visualizer**: Ambient theme audio player with Web Audio API frequency visualizer and CSS equalizer fallback.
+- **Multi-Theme Engine**: Seamless multi-theme palette switching (Default Dark, Cyberpunk, Deep Sea, Lava).
+
+---
 
 ## Tech Stack
 
-- **Frontend**: Vanilla HTML5, CSS3, JavaScript (ES6+)
-- **3D Graphics**: Three.js (r128)
-- **Icons**: Font Awesome 6
-- **Fonts**: Inter (Google Fonts)
-- **Deployment**: Vercel
+| Domain | Technologies |
+|---|---|
+| **AI & ML** | LangGraph, Gemini 2.5 Flash, PyTorch, Rembg, Computer Vision, Agentic Workflows |
+| **Backend & Systems** | Go (Golang), Python, Django 5, FastAPI, Flask, PostgreSQL, Redis, Docker, Celery |
+| **Frontend & Web** | Next.js 15, TypeScript, Tailwind CSS, Vanilla HTML5 / CSS3 / ES6+, Three.js |
+| **Tools & Cloud** | Git, GitHub, Vercel, Supabase, Cloudflare R2, Linux, Mapbox GL |
+
+---
 
 ## Project Structure
 
-```
-├── index.html            # Main HTML structure
-├── style.css             # All styles (themes, animations, layout)
-├── script.js             # All JavaScript logic
-├── assets/images/        # Generated cover images for projects
-├── Creater Pic.png       # Content section image
-├── Portfolio Music.mp3   # Background music
-└── Tanmay-Dey-Resume.pdf # Downloadable Resume
+```text
+PERSONAL PORTFOLIO/
+├── assets/
+│   ├── images/                       # Dedicated 16:9 project cover mockups
+│   │   ├── project-tripgenius.jpg    # TripGenius AI Planner
+│   │   ├── project-vernacular-ai.jpg # Vernacular AI Storefront
+│   │   ├── project-snaptube.jpg      # Snaptube-Clone Media Engine
+│   │   ├── project-restaurant.jpg    # Restaurant Management System
+│   │   ├── project-eventmaster.jpg   # EventMaster Platform
+│   │   ├── project-ziplink.jpg       # ZipLink URL Shortener
+│   │   ├── project-gameonix.jpg      # Gameonix Discord Auto-Moderator
+│   │   ├── project-bg-remover.jpg    # BACKGROUND-REMOVER Utility
+│   │   └── project-windows12.jpg     # Fanmade Windows 12
+│   └── certificates/                 # Offline archive of verified certificates
+├── Creater Pic.png                   # Blox2Build YouTube channel preview
+├── Portfolio Music.mp3               # Ambient theme background music
+├── Tanmay_Dey_Resume_2026.pdf        # Official verified resume
+├── index.html                        # Production semantic HTML5 markup
+├── style.css                         # Modular responsive glassmorphism styles
+├── script.js                         # Three.js 3D particles, terminal OS & logic
+└── README.md                         # Project documentation
 ```
 
-## Sections
+---
 
-1. **Hero** - Introduction with animated text
-2. **About** - Skills, philosophy, tech stack (6 categories)
-3. **Featured Projects** - Highlighted major projects (Next.js, Python, Go)
-4. **Testimonials & Achievements** - Project references and milestones
-5. **Content Creation** - Blox2Build YouTube channel
-6. **Contact** - Email, GitHub, LinkedIn, Instagram
+## Featured Projects
+
+1. **TripGenius AI Planner** - Full-stack autonomous multi-destination travel itinerary engine (*Next.js 14, TypeScript, PostgreSQL, Clerk*).
+2. **Vernacular AI Global Artisan Storefront** - Multimodal grassroots commerce platform with real-time vernacular audio & Gemini 2.5 Flash (*Next.js 15, FastAPI, Supabase, Whisper*).
+3. **Snaptube-Clone Media Engine** - Distributed video transcode & audio extraction pipeline (*Go 1.22, Gin, FFmpeg, Docker, Goroutines*).
+4. **CodeAlpha Restaurant Management** - Atomic inventory deduction & double-booking prevention system (*Django 5, PostgreSQL, Redis, Celery*).
+5. **CodeAlpha EventMaster Platform** - Full-stack event logistics & ticket reservation ecosystem (*Django, Tailwind CSS, SQLite, Pytest*).
+6. **ZipLink URL Shortener** - Sub-5ms low-latency URL compression microservice with real-time telemetry (*Flask, SQLAlchemy, nanoid, Pytest*).
+7. **Gameonix Discord Auto-Moderator** - High-concurrency community security bot commended by CEO (*Python, Discord.py, AsyncIO*).
+8. **BACKGROUND-REMOVER** - Local-first deep learning foreground segmentation utility (*Python, rembg, Streamlit, PyTorch*).
+9. **Fanmade Windows 12** - Conceptual operating system desktop simulation (*HTML5, CSS3 Glassmorphism, Vanilla JS*).
+
+---
 
 ## Local Development
 
+Run with any local HTTP server:
+
 ```bash
-# Simple HTTP server
+# Using Python
 python -m http.server 8000
-# or
+
+# Using Node.js
 npx serve .
 ```
 
-Then open `http://localhost:8000`
+Open `http://localhost:8000` in any modern browser.
 
-> **Note on Audio:** If opening `index.html` directly via the `file://` protocol, the background music relies on a CSS fallback visualizer to prevent local CORS muting. Running a local server allows the full Web Audio API equalizer to function.
+> **Audio Note**: Running via a local HTTP server allows the full Web Audio API equalizer to connect cleanly.
 
-## Customization
-
-- **Themes**: Edit CSS custom properties in `style.css`
-- **Projects**: Update `projectRepos` array in `script.js`
-- **Content**: Modify `index.html` sections
-- **Skills**: Edit skills grid in About section
+---
 
 ## License
 
-MIT License - Feel free to use as inspiration for your own portfolio.
-
+MIT License &copy; 2026 Tanmay Dey (Teddy).
