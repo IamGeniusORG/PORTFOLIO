@@ -50,7 +50,7 @@ PERSONAL PORTFOLIO/
 │   └── certificates/                 # Offline archive of verified certificates
 ├── Creater Pic.png                   # Blox2Build YouTube channel preview
 ├── Portfolio Music.mp3               # Ambient theme background music
-├── Tanmay_Dey_Resume_2026.pdf        # Official verified resume
+├── T_Resume_2k26.pdf                 # Official verified resume
 ├── index.html                        # Production semantic HTML5 markup
 ├── style.css                         # Modular responsive glassmorphism styles
 ├── script.js                         # Three.js 3D particles, terminal OS & logic

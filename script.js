@@ -546,10 +546,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         response = '30+ Production Repositories: TripGenius (Live), Vernacular AI (PWA), Snaptube-Clone, CodeAlpha Restaurant Management, ZipLink, EventMaster, and more.';
                         break;
                     case 'resume':
-                        response = 'Initiating download of Tanmay_Dey_Resume_2026.pdf...';
+                        response = 'Initiating download of T_Resume_2k26.pdf...';
                         const dlLink = document.createElement('a');
-                        dlLink.href = 'Tanmay_Dey_Resume_2026.pdf';
-                        dlLink.download = 'Tanmay_Dey_Resume_2026.pdf';
+                        dlLink.href = 'T_Resume_2k26.pdf';
+                        dlLink.download = 'T_Resume_2k26.pdf';
                         document.body.appendChild(dlLink);
                         dlLink.click();
                         document.body.removeChild(dlLink);
